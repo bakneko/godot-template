@@ -1,0 +1,23 @@
+# - https://github.com/github/gitignore/blob/master/Godot.gitignore
+
+# Godot-specific ignores
+.import/
+
+# Mono-specific ignores
+.mono/
+data_*/
+
+# Builds/export directory
+[Bb]uilds/
+
+# Sandbox folder (for testing in local machine)
+[Ss]andbox/
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# macOS
+.DS_Store
+
+# VSCode
+.vscode/
