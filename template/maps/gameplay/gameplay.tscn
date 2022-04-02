@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://template/sprites/sprite.png" type="Texture" id=1]
-[ext_resource path="res://template/core/ui/pause/pause-layer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://template/sprites/godot.png" type="Texture" id=1]
+[ext_resource path="res://core/ui/pause/pause-layer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://template/maps/gameplay/gameplay.gd" type="Script" id=5]
 
 [node name="Gameplay" type="Node"]

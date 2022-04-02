@@ -1,13 +1,15 @@
-# - https://github.com/github/gitignore/blob/master/Godot.gitignore
+# - Based on https://github.com/github/gitignore/blob/master/Godot.gitignore
+# - Works best with https://github.com/Bakneko/godot-style-guide
 
 # Godot-specific ignores
 .import/
+.godot/
 
 # Mono-specific ignores
 .mono/
 data_*/
 
-# Builds/export directory
+# Builds/export folder
 [Bb]uilds/
 
 # Sandbox folder (for testing in local machine)
@@ -16,7 +18,7 @@ data_*/
 # Imported translations (automatically generated from CSV files)
 *.translation
 
-# macOS
+# macOS ignores
 .DS_Store
 
 # VSCode
