@@ -1,16 +1,10 @@
-![game-template-overview](https://user-images.githubusercontent.com/6860637/101258948-24c35c80-3726-11eb-8c64-7a201e945f73.png)
-
-> 🌟 You make games, the template handles the boring stuff.
-
-<p>
+# Godot-Template
 <a href="https://godotengine.org/download">
-  <img alt="Godot Download badge" src="https://img.shields.io/badge/godot-3.4-blue">
+  <img alt="Godot Download badge" src="https://img.shields.io/badge/godot-4.0-blue">
 </a>
-
 <a href="https://github.com/crystal-bit/godot-game-template/releases">
   <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/crystal-bit/godot-game-template">
 </a>
-
 <a href="https://github.com/crystal-bit/godot-game-template/actions?query=workflow%3A%22godot-ci+export%22">
   <img alt="GitHub workflow status" src="https://img.shields.io/github/workflow/status/crystal-bit/godot-game-template/godot-ci%20export?label=game-export">
 </a>
@@ -18,14 +12,6 @@
 <!-- <a href="https://github.com/crystal-bit/godot-game-template/wiki">
   <img alt="GitHub wiki" src="https://img.shields.io/badge/%F0%9F%93%96-wiki-blueviolet">
 </a> -->
-
-<a href="https://crystalbit.itch.io/godot-game-template">
-  <img alt="Play store badge" src="https://img.shields.io/badge/HTML5-Itch.io-critical">
-</a>
-
-<a href="https://play.google.com/store/apps/details?id=org.crystalbit.godottemplate">
-  <img alt="Play store badge" src="https://img.shields.io/badge/Android-PlayStore-green">
-</a>
 </p>
 
 # Get started
@@ -38,13 +24,6 @@
 Read the [wiki](https://github.com/crystal-bit/godot-game-template/wiki/) to learn more.
 
 ## Used by
-
-| Logo                                                                                                                                            | Title                               | Play it!                                                                                                                                                             | Source                                                            |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| ![YouAreUto icon](https://play-lh.googleusercontent.com/lL54YNps-UPuDONDHfy3pmn8_aVUZGMorHJcDArimJWCQKjjNax0QMxpiAWCc5PUPbU=s100-rw)            | **YouAreUto** (2019)                | [Android](https://play.google.com/store/apps/details?id=com.youare.uto), [iOS](https://apps.apple.com/app/brain-game-teaser-youareuto/id1590561597#?platform=iphone) | [GitHub](https://github.com/YouAreUto/YouAreUto)                  |
-| ![Defending Todot icon](https://imgur.com/Bn10XAf.png)                                                                                          | **Defending Todot** (2020)          | [HTML5](https://crystal-bit.github.io/defending-todot/)                                                                                                              | [GitHub](https://github.com/crystal-bit/defending-todot)          |
-| ![Karooto No Gase icon](https://play-lh.googleusercontent.com/sWgjV9dJxa1jKina0mNbU3fGmqA4zuqtRWXfhn_dfEK6reW90GH1uz0wsai1SG898bOZ=s100-rw)     | **Karooto No Gase** (2021)          | [Android](https://play.google.com/store/apps/details?id=org.calalinta.karootonogase), [Itch.io](https://calalinta.itch.io/)                                          | N/A                                                               |
-| ![Godot Game Template Demo](https://play-lh.googleusercontent.com/aOVexQckoyjN2WJp_puq8ifTr2TnWwJ-cNw6iflcH0IpQYp04m_ChTd0jwkCKalz5wVM=s100-rw) | **demo-godot-game-template** (2021) | [Android](https://play.google.com/store/apps/details?id=org.crystalbit.godottemplate)                                                                                | [GitHub](https://github.com/crystal-bit/demo-godot-game-template) |
 
 _Get in contact if you want to be featured here!_
 
