@@ -8,16 +8,6 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "Reference",
-"class": &"SceneData",
-"language": &"GDScript",
-"path": "res://core/classes/scene_data.gd"
-}]
-_global_script_class_icons={
-"SceneData": ""
-}
-
 [application]
 
 config/name="godot-template"
@@ -48,6 +38,10 @@ window/size/always_on_top=true
 [editor_plugins]
 
 enabled=PackedStringArray()
+
+[gui]
+
+theme/custom="res://core/ui/theme.tres"
 
 [rendering]
 

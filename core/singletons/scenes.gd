@@ -6,9 +6,8 @@ signal change_finished
 
 const MINIMUM_TRANSITION_DURATION = 200 # ms
 
-onready var transitions: Transition = get_node_or_null("/root/Transitions")
-onready var _history = preload("res://core/classes/scene_history.gd").new()
-onready var _loader = preload("res://core/classes/resource_loader.gd").new()
+@onready var transitions: Transition = get_node_or_null("/root/Transitions")
+@onready var _loader = preload("res://core/classes/loader.gd").new()
 
 # Parameter Caching.
 var _params = {}

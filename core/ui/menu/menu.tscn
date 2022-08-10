@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://byqatd4natff0"]
 
-[ext_resource type="Theme" uid="uid://7ovulinuy38m" path="res://core/ui/theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://dwxpimrkfb4al" path="res://core/ui/theme.tres" id="1"]
 [ext_resource type="Script" path="res://core/ui/menu/menu.gd" id="5"]
 
 [node name="Menu" type="Control"]
@@ -22,33 +22,40 @@ color = Color(0.25098, 0.25098, 0.25098, 1)
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Title" type="Label" parent="CenterContainer"]
-offset_left = 546.0
-offset_top = 347.0
-offset_right = 734.0
-offset_bottom = 373.0
-text = "Godot Game Template"
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+offset_left = 458.0
+offset_top = 302.0
+offset_right = 821.0
+offset_bottom = 418.0
+alignment = 1
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+offset_right = 363.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 40
+text = "Godot Template"
 uppercase = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+offset_left = 106.0
+offset_top = 56.0
+offset_right = 256.0
+offset_bottom = 116.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
 
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
-offset_right = 55.0
-offset_bottom = 31.0
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+offset_right = 150.0
+offset_bottom = 28.0
 focus_next = NodePath("../ExitButton")
-theme = ExtResource("1")
 text = "START"
 
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
-offset_top = 35.0
-offset_right = 55.0
-offset_bottom = 66.0
+[node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+offset_top = 32.0
+offset_right = 150.0
+offset_bottom = 60.0
 focus_previous = NodePath("../PlayButton")
-theme = ExtResource("1")
 text = "EXIT"
 
 [node name="Version" type="VBoxContainer" parent="."]
@@ -56,14 +63,14 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 
 [node name="GameVersion" type="Label" parent="Version"]
-offset_right = 124.0
-offset_bottom = 26.0
+offset_right = 121.0
+offset_bottom = 23.0
 text = "<x.y.z>"
 
 [node name="GodotVersion" type="Label" parent="Version"]
-offset_top = 30.0
-offset_right = 124.0
-offset_bottom = 56.0
+offset_top = 27.0
+offset_right = 121.0
+offset_bottom = 50.0
 text = "<GodotVersion>"
 
 [node name="Credits" type="VBoxContainer" parent="."]
@@ -76,20 +83,20 @@ grow_vertical = 0
 
 [node name="MadeByLabel" type="Label" parent="Credits"]
 offset_right = 166.0
-offset_bottom = 26.0
+offset_bottom = 23.0
 text = "made by:"
 
 [node name="Developer1" type="Label" parent="Credits"]
-offset_top = 30.0
+offset_top = 27.0
 offset_right = 166.0
-offset_bottom = 56.0
+offset_bottom = 50.0
 grow_horizontal = 0
 text = "Crystal Bit community"
 
 [node name="Developer2" type="Label" parent="Credits"]
-offset_top = 60.0
+offset_top = 54.0
 offset_right = 166.0
-offset_bottom = 86.0
+offset_bottom = 77.0
 grow_horizontal = 0
 text = "Bakneko Games"
 
@@ -98,5 +105,5 @@ visible = false
 grow_horizontal = 0
 text = "Developer 3"
 
-[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

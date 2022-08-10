@@ -1,26 +1,18 @@
-extends Node
-
-
 # ----------------------------------------
-# Notes
+# res://core/singletons/utils.gd
 # ----------------------------------------
 # Utilities for easier programming.
-
+extends Node
 
 # ----------------------------------------
 # File Operations
 # ----------------------------------------
-
-
 func file_exists(path) -> bool:
-	var file = File.new()
-	return file.file_exists(path)
-
+	return File.file_exists(path)
 
 # ----------------------------------------
 # Scene Operations
 # ----------------------------------------
-
 
 ## Reparent a node under a new parent.
 ## Optionally updates the transform to mantain the current
