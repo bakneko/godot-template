@@ -6,44 +6,37 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
+config_version=5
 
-_global_script_classes=[ {
-"base": "Reference",
-"class": "SceneData",
-"language": "GDScript",
-"path": "res://addons/template/scenes/scene-data.gd"
-}, {
+_global_script_classes=[{
 "base": "Node",
-"class": "Scenes",
-"language": "GDScript",
-"path": "res://addons/template/scenes.gd"
-}, {
-"base": "Reference",
-"class": "Transition",
-"language": "GDScript",
-"path": "res://addons/template/transition/transition.gd"
-} ]
+"class": &"Scenes",
+"language": &"GDScript",
+"path": "res://core/singletons/scenes.gd"
+}]
 _global_script_class_icons={
-"SceneData": "",
-"Scenes": "",
-"Transition": ""
+"Scenes": ""
 }
 
 [application]
 
 config/name="godot-template"
-run/main_scene="res://template/core/ui/menu/menu.tscn"
-boot_splash/image="res://template/core/images/splash.png"
-boot_splash/bg_color=Color( 0.0862745, 0.0862745, 0.0862745, 1 )
-config/icon="res://template/core/images/icon.png"
+run/main_scene="res://core/ui/splash/splash.tscn"
+config/features=PackedStringArray("4.0")
+boot_splash/show_image=false
+boot_splash/bg_color=Color(0, 0, 0, 1)
+config/icon="res://core/images/icon.png"
 config/version="1.0.0"
+
+[audio]
+
+buses/default_bus_layout="res://core/audio_bus_default.tres"
 
 [autoload]
 
-Utils="*res://addons/template/utils.gd"
-Transitions="*res://addons/template/transition/transition.tscn"
-Game="*res://addons/template/game.gd"
+Utils="*res://core/singletons/utils.gd"
+Transitions="*res://core/ui/transition/transition.tscn"
+Game="*res://core/singletons/game.gd"
 
 [category]
 
@@ -51,19 +44,19 @@ property_name=1
 
 [display]
 
-window/dpi/allow_hidpi=true
-window/stretch/mode="2d"
-window/stretch/aspect="expand"
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/resizable=false
+window/size/always_on_top=true
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/template/plugin.cfg" )
+enabled=PackedStringArray()
 
-[input]
+[gui]
 
-pause={
-"deadzone": 0.5,
-"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
-}
+theme/custom="res://core/ui/theme.tres"
+
+[rendering]
+
+threads/thread_model=2
