@@ -61,6 +61,10 @@ text = "EXIT"
 [node name="Version" type="VBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 121.0
+grow_vertical = 0
+metadata/_edit_layout_mode = 1
 
 [node name="GameVersion" type="Label" parent="Version"]
 offset_right = 121.0

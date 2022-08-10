@@ -64,6 +64,7 @@ func _set_new_scene(resource: PackedScene):
 	if instanced_scn.has_method("pre_start"):
 		instanced_scn.pre_start(_params)
 	if transitions:
+		
 		yield(transitions.anim, "animation_finished")
 	if instanced_scn.has_method("start"):
 		instanced_scn.start()
