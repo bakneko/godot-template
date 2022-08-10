@@ -1,7 +1,7 @@
 # ----------------------------------------
-# res://core/singletons/game.gd
+# game.gd
 # ----------------------------------------
-# Game autoload. Use `Game` global variable to access.
+# Game autoload singleton.
 # Eg: `Game.change_scene("res://template/maps/gameplay/gameplay.tscn")`
 extends Node
 

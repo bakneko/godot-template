@@ -1,8 +1,8 @@
 # ----------------------------------------
-# res://core/classes/loader.gd
+# loader.gd
 # ----------------------------------------
-# Multi-threaded ResourceLoader for Godot 4.
-class_name ResourceThreadLoader
+# Multi threaded resource loader.
+class_name ThreadLoader
 
 
 signal resource_loaded(res)

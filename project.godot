@@ -10,24 +10,30 @@ config_version=5
 
 _global_script_classes=[{
 "base": "RefCounted",
-"class": &"PackageManager",
+"class": &"Logger",
 "language": &"GDScript",
-"path": "res://core/classes/pck.gd"
+"path": "res://core/classes/logger.gd"
 }, {
 "base": "RefCounted",
-"class": &"ResourceThreadLoader",
+"class": &"PackageManager",
 "language": &"GDScript",
-"path": "res://core/classes/loader.gd"
+"path": "res://core/classes/pckmgr.gd"
 }, {
 "base": "Node",
 "class": &"Scenes",
 "language": &"GDScript",
 "path": "res://core/singletons/scenes.gd"
+}, {
+"base": "RefCounted",
+"class": &"ThreadLoader",
+"language": &"GDScript",
+"path": "res://core/classes/loader.gd"
 }]
 _global_script_class_icons={
+"Logger": "",
 "PackageManager": "",
-"ResourceThreadLoader": "",
-"Scenes": ""
+"Scenes": "",
+"ThreadLoader": ""
 }
 
 [application]
@@ -47,7 +53,6 @@ buses/default_bus_layout="res://core/audio_bus_default.tres"
 [autoload]
 
 Utils="*res://core/singletons/utils.gd"
-Game="*res://core/singletons/game.gd"
 
 [category]
 
