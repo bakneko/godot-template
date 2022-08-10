@@ -1,6 +1,6 @@
 extends Node
 
-onready var transitions = get_node_or_null("/root/Transitions")
+@onready var transitions = get_node_or_null("/root/Transitions")
 var pause_scenes_on_transitions = false
 var prevent_input_on_transitions = true
 

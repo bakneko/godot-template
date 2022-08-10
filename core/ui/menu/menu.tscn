@@ -23,10 +23,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Title" type="Label" parent="CenterContainer"]
-offset_left = 418.0
-offset_top = 287.0
-offset_right = 606.0
-offset_bottom = 313.0
+offset_left = 546.0
+offset_top = 347.0
+offset_right = 734.0
+offset_bottom = 373.0
 text = "Godot Game Template"
 uppercase = true
 

@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _on_PlayButton_pressed() -> void:
 	var params = {
-		show_progress_bar = false,
+		show_progress_bar: false,
 		"a_number": 10,
 		"a_string": "Ciao mamma!",
 		"an_array": [1, 2, 3, 4],
@@ -29,7 +29,7 @@ func _on_ExitButton_pressed() -> void:
 		transitions.fade_in({
 			'show_progress_bar': false
 		})
-		yield(transitions.anim, "animation_finished")
-		yield(get_tree().create_timer(0.3), "timeout")
+		await(transitions.anim, "animation_finished")
+		await(get_tree().create_timer(0.3), "timeout")
 	get_tree().quit()
 	pass
