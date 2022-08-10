@@ -2,7 +2,6 @@
 # res://core/singletons/utils.gd
 # ----------------------------------------
 # Utilities for easier programming.
-
 extends Node
 
 # ----------------------------------------
@@ -31,4 +30,3 @@ func reparent_node(node: Node2D, new_parent, update_transform = false) -> void:
 # ----------------------------------------
 
 ## Load *.pck file from a given path.
-## Reference: 

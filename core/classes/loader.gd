@@ -1,10 +1,15 @@
+# ----------------------------------------
+# res://core/classes/loader.gd
+# ----------------------------------------
+# Multi-threaded ResourceLoader for Godot 4.
 extends Node
+
 
 signal resource_loaded(res)
 signal resource_stage_loaded(current_stage, total_stages)
 
-const SIMULATED_DELAY_MS = 32 # ms
 
+const SIMULATED_DELAY_MS = 32 # ms
 var thread: Thread = null
 var stages_amount: int
 
@@ -23,7 +28,6 @@ func _thread_load(path):
 	var ril = ResourceLoader.load_interactive(path)
 	stages_amount = ril.get_stage_count()
 	var res = null
-
 	while true:
 		emit_signal("resource_stage_loaded", ril.get_stage(), stages_amount)
 		OS.delay_msec(SIMULATED_DELAY_MS)

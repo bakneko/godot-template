@@ -8,10 +8,20 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Node",
+"class": &"Scenes",
+"language": &"GDScript",
+"path": "res://core/singletons/scenes.gd"
+}]
+_global_script_class_icons={
+"Scenes": ""
+}
+
 [application]
 
 config/name="godot-template"
-run/main_scene="res://core/ui/menu/menu.tscn"
+run/main_scene="res://core/ui/splash/splash.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/show_image=false
 boot_splash/bg_color=Color(0, 0, 0, 1)

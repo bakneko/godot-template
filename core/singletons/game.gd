@@ -22,7 +22,7 @@ var size: Vector2
 
 func _enter_tree() -> void:
 	# Need to make "prevent_input_on_transitions" work even if the game is paused.
-	pause_mode = Node.PAUSE_MODE_PROCESS
+	pause_mode = Node.PAUSE_MODE_ALWAYS
 
 	# Update screen size when screen is being resized.
 	_update_screen_size()

@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-### Legend
+## Legend
 
 🟢 Added
 🔵 Changed

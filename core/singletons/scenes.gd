@@ -4,9 +4,6 @@ extends Node
 signal change_started
 signal change_finished
 
-const MINIMUM_TRANSITION_DURATION = 200 # ms
-
-@onready var transitions: Transition = get_node_or_null("/root/Transitions")
 @onready var _loader = preload("res://core/classes/loader.gd").new()
 
 # Parameter Caching.
@@ -64,8 +61,7 @@ func _set_new_scene(resource: PackedScene):
 	if instanced_scn.has_method("pre_start"):
 		instanced_scn.pre_start(_params)
 	if transitions:
-		
-		yield(transitions.anim, "animation_finished")
+		await transitions.anim.animation_finished
 	if instanced_scn.has_method("start"):
 		instanced_scn.start()
 	emit_signal("change_finished")
@@ -94,7 +90,7 @@ func _on_change_started(new_scene, params):
 
 func _on_resource_loaded(resource):
 	if transitions and transitions.is_transition_in_playing():
-		yield(transitions.anim, "animation_finished")
+		await transitions.anim.animation_finished
 	var load_time = OS.get_ticks_msec() - _loading_start_time # ms
 	print("[INFO] {scn} loaded in {elapsed}ms.".format({
 		'scn': resource.resource_path,
@@ -102,5 +98,5 @@ func _on_resource_loaded(resource):
 	}))
 	# Artificially wait some time in order to have a gentle scene transition
 	if transitions and load_time < MINIMUM_TRANSITION_DURATION:
-		yield(get_tree().create_timer((MINIMUM_TRANSITION_DURATION - load_time) / 1000.0), "timeout")
+		await get_tree().create_timer((MINIMUM_TRANSITION_DURATION - load_time) / 1000.0).timeout
 	_set_new_scene(resource)
