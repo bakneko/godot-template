@@ -2,11 +2,13 @@
 # res://core/singletons/utils.gd
 # ----------------------------------------
 # Utilities for easier programming.
+
 extends Node
 
 # ----------------------------------------
 # File Operations
 # ----------------------------------------
+
 func file_exists(path) -> bool:
 	return File.file_exists(path)
 
@@ -24,11 +26,9 @@ func reparent_node(node: Node2D, new_parent, update_transform = false) -> void:
 	if update_transform:
 		node.global_transform = previous_xform
 
-
 # ----------------------------------------
 # PCK Package Manager
 # ----------------------------------------
-
 
 ## Load *.pck file from a given path.
 ## Reference: 

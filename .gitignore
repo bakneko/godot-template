@@ -5,21 +5,22 @@
 .import/
 .godot/
 
+# Imported translations (automatically generated from CSV files)
+*.translation
+
 # Mono-specific ignores
 .mono/
 data_*/
 
 # Builds/export folder
-[Bb]uilds/
+![Bb]uild/.gdignore
+[Bb]uild/
 
 # Sandbox folder (for testing in local machine)
 [Ss]andbox/
 
-# Imported translations (automatically generated from CSV files)
-*.translation
-
-# macOS ignores
+# macOS-specific ignores
 .DS_Store
 
-# VSCode
+# VSCode-specific ignores
 .vscode/

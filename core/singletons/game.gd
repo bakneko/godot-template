@@ -1,3 +1,8 @@
+# ----------------------------------------
+# res://core/singletons/game.gd
+# ----------------------------------------
+# Game autoload. Use `Game` global variable to access.
+# Eg: `Game.change_scene("res://template/maps/gameplay/gameplay.tscn")`
 extends Node
 
 @onready var transitions = get_node_or_null("/root/Transitions")
@@ -8,11 +13,7 @@ var scenes: Scenes
 var size: Vector2
 
 
-# ----------------------------------------
-# Notes
-# ----------------------------------------
-# Game autoload. Use `Game` global variable to access.
-# Eg: `Game.change_scene("res://template/maps/gameplay/gameplay.tscn")`
+
 
 
 # ----------------------------------------
