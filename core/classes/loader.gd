@@ -2,6 +2,7 @@
 # res://core/classes/loader.gd
 # ----------------------------------------
 # Multi-threaded ResourceLoader for Godot 4.
+class_name ResourceThreadLoader
 extends Node
 
 

@@ -13,9 +13,6 @@ var scenes: Scenes
 var size: Vector2
 
 
-
-
-
 # ----------------------------------------
 # Entrypoints
 # ----------------------------------------
@@ -34,10 +31,11 @@ func _enter_tree() -> void:
 		transitions.connect("transition_finished", self, "_on_Transitions_transition_finished")
 
 func _ready() -> void:
+	pass
 	# Add 'Scenes' singleton node.
-	scenes = preload("res://core/singletons/scenes.gd").new()
-	scenes.name = "Scenes"
-	get_node("/root/").call_deferred("add_child", scenes)
+	#scenes = preload("res://core/singletons/scenes.gd").new()
+	#scenes.name = "Scenes"
+	#get_node("/root/").call_deferred("add_child", scenes)
 
 func _input(_event: InputEvent):
 	if transitions and prevent_input_on_transitions and transitions.is_displayed():
@@ -45,7 +43,7 @@ func _input(_event: InputEvent):
 		get_tree().set_input_as_handled()
 
 # ----------------------------------------
-# Acquire Screen Size
+# Update Screen Size
 # ----------------------------------------
 
 func _on_screen_resized():
@@ -58,6 +56,7 @@ func _update_screen_size():
 # Change Scene
 # ----------------------------------------
 
+
 func change_scene(scene: String, params = {}):
 	if not Utils.file_exists(scene):
 		printerr("[ERROR] Scene file not found: ", scene)
@@ -66,14 +65,6 @@ func change_scene(scene: String, params = {}):
 		# use multi-thread
 		scenes.change_scene(scene, params)
 
-## Restart current scene.
-## If params is not {}, restart with given params.
-func restart_scene(params = {}):
-	var scene_data = scenes.get_last_loaded_scene_data()
-	if params == {}:
-		change_scene(scene_data.path, scene_data.params)
-	else:
-		change_scene(scene_data.path, params)
 
 # ----------------------------------------
 # Transitions Singal

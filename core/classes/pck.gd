@@ -2,11 +2,12 @@
 # res://core/classes/pck.gd
 # ----------------------------------------
 # Godot data pack manager.
+class_name PackageManager
 extends Node
 
-var LoadingProgress = 0
-var CurrentPackIndex = 0
-var TotalPcks = 0
+var progress = 0.0
+var index = 0
+var total = 0
 
 func load_pcks(): 
 	# loading pack in pack list and update progress

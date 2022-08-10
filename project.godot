@@ -10,11 +10,23 @@ config_version=5
 
 _global_script_classes=[{
 "base": "Node",
+"class": &"PackageManager",
+"language": &"GDScript",
+"path": "res://core/classes/pck.gd"
+}, {
+"base": "Node",
+"class": &"ResourceThreadLoader",
+"language": &"GDScript",
+"path": "res://core/classes/loader.gd"
+}, {
+"base": "Node",
 "class": &"Scenes",
 "language": &"GDScript",
 "path": "res://core/singletons/scenes.gd"
 }]
 _global_script_class_icons={
+"PackageManager": "",
+"ResourceThreadLoader": "",
 "Scenes": ""
 }
 
@@ -35,7 +47,6 @@ buses/default_bus_layout="res://core/audio_bus_default.tres"
 [autoload]
 
 Utils="*res://core/singletons/utils.gd"
-Transitions="*res://core/ui/transition/transition.tscn"
 Game="*res://core/singletons/game.gd"
 
 [category]
