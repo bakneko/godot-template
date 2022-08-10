@@ -28,6 +28,10 @@ boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://core/images/icon.png"
 config/version="1.0.0"
 
+[audio]
+
+buses/default_bus_layout="res://core/audio_bus_default.tres"
+
 [autoload]
 
 Utils="*res://core/singletons/utils.gd"
