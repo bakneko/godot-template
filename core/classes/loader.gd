@@ -3,7 +3,6 @@
 # ----------------------------------------
 # Multi-threaded ResourceLoader for Godot 4.
 class_name ResourceThreadLoader
-extends Node
 
 
 signal resource_loaded(res)
