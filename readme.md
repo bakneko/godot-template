@@ -15,4 +15,4 @@ Godot Engine 4 game project template for quick start.
 
 ## Changelog
 
-#### [Check here for detailed Changelog.](./changelog.md)
+#### [Check here for a detailed Changelog.](./changelog.md)
