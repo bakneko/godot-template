@@ -4,10 +4,8 @@
 # Multi threaded resource loader.
 class_name ThreadLoader
 
-
 signal resource_loaded(res)
 signal resource_stage_loaded(current_stage, total_stages)
-
 
 const SIMULATED_DELAY_MS = 32 # ms
 var thread: Thread = null

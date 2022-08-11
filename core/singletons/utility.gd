@@ -1,11 +1,8 @@
 # ----------------------------------------
-# utils.gd
+# utility.gd
 # ----------------------------------------
-# Quality of life functions.
+# Functions for tool use.
 extends Node
-
-@onready var Logger = preload("res://core/classes/logger.gd").new()
-@onready var Pckmgr = preload("res://core/classes/pckmgr.gd").new()
 
 
 # File Operations ------------------------

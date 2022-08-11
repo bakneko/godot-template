@@ -1,79 +1,46 @@
 # ----------------------------------------
 # game.gd
 # ----------------------------------------
-# Game autoload singleton.
+# Game Entrypoint.
 # Eg: `Game.change_scene("res://template/maps/gameplay/gameplay.tscn")`
 extends Node
 
-@onready var transitions = get_node_or_null("/root/Transitions")
-var pause_scenes_on_transitions = false
-var prevent_input_on_transitions = true
 
-var scenes: Scenes
-var size: Vector2
+var screen_size: Vector2
+
+@onready var pckmgr = preload("res://core/classes/pckmgr.gd").new()
+#@onready var logger = preload("res://core/classes/loader.gd").new()
+@onready var splash = preload("res://core/ui/splash/splash.tscn").instantiate()
 
 
-# ----------------------------------------
-# Entrypoints
-# ----------------------------------------
-
+# Entrypoint -----------------------------
 func _enter_tree() -> void:
-	# Need to make "prevent_input_on_transitions" work even if the game is paused.
-	pause_mode = Node.PAUSE_MODE_ALWAYS
-
 	# Update screen size when screen is being resized.
 	_update_screen_size()
-	var _t = get_tree().connect("screen_resized", self, "_on_screen_resized")
-
-	# If Transition exists, connect signal.
-	if transitions:
-		transitions.connect("transition_started", self, "_on_Transitions_transition_started")
-		transitions.connect("transition_finished", self, "_on_Transitions_transition_finished")
+	# Init Logger
+	
+	# Init PackageManager
+	
 
 func _ready() -> void:
+	
 	pass
-	# Add 'Scenes' singleton node.
-	#scenes = preload("res://core/singletons/scenes.gd").new()
-	#scenes.name = "Scenes"
-	#get_node("/root/").call_deferred("add_child", scenes)
 
-func _input(_event: InputEvent):
-	if transitions and prevent_input_on_transitions and transitions.is_displayed():
-		# Prevents all inputs while a graphic transition is playing.
-		get_tree().set_input_as_handled()
 
-# ----------------------------------------
-# Update Screen Size
-# ----------------------------------------
-
+# Screen Size ----------------------------
 func _on_screen_resized():
 	_update_screen_size()
 
 func _update_screen_size():
-	size = get_viewport().get_visible_rect().size
-
-# ----------------------------------------
-# Change Scene
-# ----------------------------------------
+	screen_size = get_viewport().get_visible_rect().size
 
 
+# Scene Management -----------------------
 func change_scene(scene: String, params = {}):
-	if not Utils.file_exists(scene):
+	if not Utility.file_exists(scene):
 		printerr("[ERROR] Scene file not found: ", scene)
 		return
 	else:
+		pass
 		# use multi-thread
-		scenes.change_scene(scene, params)
-
-
-# ----------------------------------------
-# Transitions Singal
-# ----------------------------------------
-
-func _on_Transitions_transition_started(_anim_name):
-	if pause_scenes_on_transitions:
-		get_tree().paused = true
-
-func _on_Transitions_transition_finished(_anim_name):
-	if pause_scenes_on_transitions:
-		get_tree().paused = false
+		#scenes.change_scene(scene, params)

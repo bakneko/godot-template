@@ -52,4 +52,4 @@ func _clear():
 func _get_all_packages():
 	var regex = RegEx.new()
 	regex.compile(".pck$")
-	return Utils.get_files_recursive(_search_path, regex)
+	return Utility.get_files_recursive(_search_path, regex)

@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="godot-template"
-run/main_scene="res://core/ui/splash/splash.tscn"
+run/main_scene="res://core/singletons/game.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/show_image=false
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -52,7 +52,7 @@ buses/default_bus_layout="res://core/audio_bus_default.tres"
 
 [autoload]
 
-Utils="*res://core/singletons/utils.gd"
+Utility="*res://core/singletons/utility.gd"
 
 [category]
 
