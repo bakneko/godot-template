@@ -3,6 +3,23 @@
 # ----------------------------------------
 # Functions for tool use.
 extends Node
+var MODULE_NAME = "Utility"
+
+@onready var logger = preload("res://core/classes/logger.gd").new()
+@onready var pckmgr = preload("res://core/classes/pckmgr.gd").new()
+
+# Entrypoint -----------------------------
+func _ready():
+	# Init logger
+	
+	# Init pckmgr
+	var search_path = [
+		"res://sandbox/build/contents",
+		"res://sandbox/build/patches",
+	]
+	pckmgr.set_path(search_path)
+	pckmgr.load_packages()
+	pass
 
 
 # File Operations ------------------------
@@ -10,14 +27,12 @@ extends Node
 func get_files_recursive(path : String, regex : RegEx = null):
 	var files = []
 	var dir := Directory.new()
-	# TODO: Use Logger (preload in Utils)
 	if dir.open(path) != OK:
-		print("Warning: could not open directory: ", path)
+		logger.error("Could not open directory: %s" % path, MODULE_NAME)
 		return []
 	if dir.list_dir_begin() != OK:
-		print("Warning: could not list contents of: ", path)
+		logger.error("Could not list contents of: %s" % path, MODULE_NAME)
 		return []
-	
 	var file := dir.get_next()
 	while file != "":
 		if dir.current_is_dir():

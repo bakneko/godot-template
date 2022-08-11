@@ -10,7 +10,7 @@ config_version=5
 
 _global_script_classes=[{
 "base": "RefCounted",
-"class": &"Logger",
+"class": &"LogWriter",
 "language": &"GDScript",
 "path": "res://core/classes/logger.gd"
 }, {
@@ -30,7 +30,7 @@ _global_script_classes=[{
 "path": "res://core/classes/loader.gd"
 }]
 _global_script_class_icons={
-"Logger": "",
+"LogWriter": "",
 "PackageManager": "",
 "Scenes": "",
 "ThreadLoader": ""

@@ -2,28 +2,21 @@
 # game.gd
 # ----------------------------------------
 # Game Entrypoint.
-# Eg: `Game.change_scene("res://template/maps/gameplay/gameplay.tscn")`
 extends Node
-
+var MODULE_NAME = "Game"
 
 var screen_size: Vector2
-
-@onready var pckmgr = preload("res://core/classes/pckmgr.gd").new()
-#@onready var logger = preload("res://core/classes/loader.gd").new()
-@onready var splash = preload("res://core/ui/splash/splash.tscn").instantiate()
+@onready var splash = preload("res://core/ui/splash/splash.tscn")
 
 
 # Entrypoint -----------------------------
-func _enter_tree() -> void:
+func _enter_tree():
 	# Update screen size when screen is being resized.
 	_update_screen_size()
-	# Init Logger
-	
-	# Init PackageManager
 	
 
-func _ready() -> void:
-	
+func _ready():
+	# Load
 	pass
 
 
