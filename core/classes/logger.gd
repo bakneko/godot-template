@@ -21,7 +21,7 @@ func _get_local_time():
 	pass
 
 func info(text : String, module : String):
-	print("[%s] %s", module, text)
+	print("[%s] %s" % [module, text])
 	pass
 
 

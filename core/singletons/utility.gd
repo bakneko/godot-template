@@ -5,14 +5,14 @@
 extends Node
 var MODULE_NAME = "Utility"
 
-@onready var logger = preload("res://core/classes/logger.gd").new()
-@onready var pckmgr = preload("res://core/classes/pckmgr.gd").new()
+@onready var logger = load("res://core/classes/logger.gd").new()
+@onready var pckmgr = load("res://core/classes/pckmgr.gd").new()
 
 # Entrypoint -----------------------------
 func _ready():
-	# Init logger
+	# Init LogWriter
 	
-	# Init pckmgr
+	# Init PackageManager
 	var search_path = [
 		"res://sandbox/build/contents",
 		"res://sandbox/build/patches",
