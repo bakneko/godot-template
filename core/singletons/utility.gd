@@ -8,23 +8,24 @@ var MODULE_NAME = "Utility"
 @onready var logger = load("res://core/classes/logger.gd").new()
 @onready var pckmgr = load("res://core/classes/pckmgr.gd").new()
 
+
 # Entrypoint -----------------------------
 func _ready():
 	# Init LogWriter
 	
-	# Init PackageManager
+	# Init PackageManager and Load .pck files
 	var search_path = [
 		"res://sandbox/build/contents",
 		"res://sandbox/build/patches",
 	]
+	pckmgr.set_logger(logger)
 	pckmgr.set_path(search_path)
-	pckmgr.load_packages()
 	pass
 
 
 # File Operations ------------------------
 # Get files in folder and subfolders. Regex Match is supported.
-func get_files_recursive(path : String, regex : RegEx = null):
+func get_files_recursive(path : String, regex : RegEx = null) -> Array:
 	var files = []
 	var dir := Directory.new()
 	if dir.open(path) != OK:

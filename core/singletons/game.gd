@@ -24,6 +24,7 @@ func _ready():
 func _on_screen_resized():
 	_update_screen_size()
 
+
 func _update_screen_size():
 	screen_size = get_viewport().get_visible_rect().size
 
