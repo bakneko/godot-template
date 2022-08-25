@@ -5,9 +5,6 @@
 class_name LogWriter
 const MODULE_NAME = "LogWriter"
 
-var _path : String = ""
-var _file : File = null
-var _display : bool = true
 var _level_dict : Dictionary = {
 	0 : "INFO",
 	1 : "WARNING",
@@ -17,18 +14,6 @@ var _level_dict : Dictionary = {
 
 
 # Public ---------------------------------
-# Set Log save path.
-func _set_path(path : String) -> void:
-	_path = path
-	pass
-
-
-# Set Display to screen
-func _set_display(display : bool) -> void:
-	_display = display
-	pass
-
-
 # Log INFO 0.
 func info(text : String, module : String) -> void:
 	_write(0, module, text)
@@ -53,13 +38,6 @@ func fatal(text : String, module : String) -> void:
 	pass
 
 
-# Clear All Variables
-func clear() -> void:
-	_path = ""
-	_display = true
-	pass
-
-
 # Private --------------------------------
 # Get Log line prefix.
 func _get_prefix(level : int , module : String):
@@ -69,8 +47,6 @@ func _get_prefix(level : int , module : String):
 
 # Build string and write
 func _write(level : int, module : String, text : String):
-	var string = "%s%s" % [_get_prefix(level, module), text]
-	# TODO Finish
-	if _display:
-		print(string)
+	var content = "%s%s" % [_get_prefix(level, module), text]
+	print(content)
 	pass

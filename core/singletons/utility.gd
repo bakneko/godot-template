@@ -8,11 +8,8 @@ const MODULE_NAME = "Utility"
 @onready var logger = load("res://core/classes/logger.gd").new()
 @onready var pckmgr = load("res://core/classes/pckmgr.gd").new()
 
-
 # Entrypoint -----------------------------
 func _ready():
-	# Init LogWriter
-	
 	# Init PackageManager and Load .pck files
 	var search_path = [
 		"F:\\WorkTemp\\sandbox\\build\\contents",
