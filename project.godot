@@ -70,7 +70,7 @@ enabled=PackedStringArray()
 
 [gui]
 
-theme/custom="res://core/ui/theme.tres"
+theme/custom="res://core/ui/theme_default.tres"
 
 [rendering]
 

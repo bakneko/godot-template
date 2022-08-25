@@ -1,6 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dwxpimrkfb4al"]
-
-[ext_resource type="FontFile" uid="uid://mieo3wppqlkd" path="res://core/fonts/lxgw-wenkai-lite/lxgw-wenkai-lite-bold.ttf" id="1_4wk22"]
-
-[resource]
-default_font = ExtResource("1_4wk22")
