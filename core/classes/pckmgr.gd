@@ -17,7 +17,7 @@ func set_path(path : Array) -> void:
 	_search_path = path
 	_packages_list = _get_all_packages()
 	if _logger != null:
-		Utility.logger.info("Set \"_search_path\" to: %s." % [_search_path], MODULE_NAME)
+		_logger.info("Set \"_search_path\" to: %s." % [_search_path], MODULE_NAME)
 	pass
 
 
@@ -34,15 +34,15 @@ func load_packages() -> void:
 	var _index = 0
 	var _progress = 0.0
 	if _logger != null:
-		Utility.logger.info("Total package count: %s." % [_total], MODULE_NAME)
+		_logger.info("Total package count: %s." % [_total], MODULE_NAME)
 	for package in _packages_list:
 		_index += 1
 		_progress = float(_index) / float(_total) * 100.0
 		if _logger != null:
-			Utility.logger.info("%s%% Loading: %s..." % [_progress, package], MODULE_NAME)
+			_logger.info("%s%% Loading: %s..." % [_progress, package], MODULE_NAME)
 		if !ProjectSettings.load_resource_pack(package):
 			if _logger != null:
-				Utility.logger.info("Failed when loading: %s!" % [package], MODULE_NAME)
+				_logger.info("Failed when loading: %s!" % [package], MODULE_NAME)
 			pass
 	pass
 
@@ -52,7 +52,7 @@ func clear() -> void:
 	_search_path = []
 	_packages_list = []
 	if _logger != null:
-		Utility.logger.info("Data cleared.", MODULE_NAME)
+		_logger.info("Data cleared.", MODULE_NAME)
 	pass
 
 
