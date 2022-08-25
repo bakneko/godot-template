@@ -30,20 +30,30 @@ func set_logger(logger : LogWriter) -> void:
 # Load all Packages in _packages_path
 func load_packages() -> void: 
 	# TODO: Handle if empty.
-	var _total = _packages_list.size()
-	var _index = 0
-	var _progress = 0.0
+	var total = _packages_list.size()
+	var index = 0
+	var progress = 0.0
 	if _logger != null:
-		_logger.info("Total package count: %s." % [_total], MODULE_NAME)
+		_logger.info("Total packages: %s." % [total], MODULE_NAME)
 	for package in _packages_list:
-		_index += 1
-		_progress = float(_index) / float(_total) * 100.0
+		index += 1
+		progress = float(index) / float(total) * 100.0
 		if _logger != null:
-			_logger.info("%s%% Loading: %s..." % [_progress, package], MODULE_NAME)
+			_logger.info("%s%% Loading: %s..." % [progress, package], MODULE_NAME)
 		if !ProjectSettings.load_resource_pack(package):
 			if _logger != null:
 				_logger.info("Failed when loading: %s!" % [package], MODULE_NAME)
 			pass
+	pass
+
+
+# Print all Packages
+func print_packages_list() -> void:
+	if _logger != null:
+		var total = _packages_list.size()
+		_logger.info("Total packages: %s." % [total], MODULE_NAME)
+		for package in _packages_list:
+			_logger.info("%s" % [package], MODULE_NAME)
 	pass
 
 
