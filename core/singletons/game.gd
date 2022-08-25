@@ -10,13 +10,17 @@ var screen_size: Vector2
 
 
 # Entrypoint -----------------------------
-func _enter_tree():
+func _ready():
 	# Update screen size when screen is being resized.
 	_update_screen_size()
-	
-
-func _ready():
+	# Init PackageManager and Load .pck files
+	var search_path = [
+		"F:\\WorkTemp\\sandbox\\build\\contents",
+		"F:\\WorkTemp\\sandbox\\build\\patches",
+	]
+	Utility.pckmgr.set_path(search_path)
 	# Load
+	Utility.logger.info("Game loaded!", MODULE_NAME)
 	pass
 
 
