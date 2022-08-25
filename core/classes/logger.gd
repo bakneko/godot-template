@@ -3,7 +3,7 @@
 # ----------------------------------------
 # Game Debug information logger.
 class_name LogWriter
-var MODULE_NAME = "LogWriter"
+const MODULE_NAME = "LogWriter"
 
 var _path : String = ""
 var _file : File = null

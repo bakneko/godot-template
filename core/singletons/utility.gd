@@ -3,7 +3,7 @@
 # ----------------------------------------
 # Functions for tool use.
 extends Node
-var MODULE_NAME = "Utility"
+const MODULE_NAME = "Utility"
 
 @onready var logger = load("res://core/classes/logger.gd").new()
 @onready var pckmgr = load("res://core/classes/pckmgr.gd").new()
@@ -15,8 +15,8 @@ func _ready():
 	
 	# Init PackageManager and Load .pck files
 	var search_path = [
-		"res://sandbox/build/contents",
-		"res://sandbox/build/patches",
+		"F:\\WorkTemp\\sandbox\\build\\contents",
+		"F:\\WorkTemp\\sandbox\\build\\patches",
 	]
 	pckmgr.set_logger(logger)
 	pckmgr.set_path(search_path)

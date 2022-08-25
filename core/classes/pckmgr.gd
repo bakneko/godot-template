@@ -3,7 +3,7 @@
 # ----------------------------------------
 # Game Data packages manager.
 class_name PackageManager
-var MODULE_NAME = "PackageManager"
+const MODULE_NAME = "PackageManager"
 
 var _search_path : Array = []
 var _packages_list : Array = []

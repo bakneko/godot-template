@@ -3,7 +3,7 @@
 # ----------------------------------------
 # Game Entrypoint.
 extends Node
-var MODULE_NAME = "Game"
+const MODULE_NAME = "Game"
 
 var screen_size: Vector2
 @onready var splash = preload("res://core/ui/splash/splash.tscn")
