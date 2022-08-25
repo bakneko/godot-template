@@ -10,7 +10,7 @@ var screen_size: Vector2
 
 
 # Entrypoint -----------------------------
-func _ready():
+func _ready() -> void:
 	# Update screen size when screen is being resized.
 	_update_screen_size()
 	# Init PackageManager and Load .pck files
