@@ -48,7 +48,7 @@ func load_packages() -> void:
 
 
 # Print all Packages
-func print_packages_list() -> void:
+func print_packages() -> void:
 	if _logger != null:
 		var total = _packages_list.size()
 		_logger.info("Total packages: %s." % [total], MODULE_NAME)
