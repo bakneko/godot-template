@@ -19,6 +19,7 @@ func _ready() -> void:
 		"F:\\WorkTemp\\sandbox\\build\\patches",
 	]
 	Utility.pckmgr.set_path(search_path)
+	Utility.pckmgr.print_packages()
 	# Load
 	Utility.logger.info("Game loaded!", MODULE_NAME)
 	pass

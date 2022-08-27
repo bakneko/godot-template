@@ -49,7 +49,7 @@ func _get_prefix(level : int , module : String):
 func _write(level : int, module : String, text : String):
 	var content = "%s%s" % [_get_prefix(level, module), text]
 	if level == 2 || level == 3:
-		printerr(content)
+		print_debug(content)
 	else:
 		print(content)
 	pass

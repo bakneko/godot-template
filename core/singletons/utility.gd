@@ -7,11 +7,12 @@ const MODULE_NAME = "Utility"
 
 @onready var logger = load("res://core/classes/logger.gd").new()
 @onready var pckmgr = load("res://core/classes/pckmgr.gd").new()
-
+@onready var loader = load("res://core/classes/loader.gd").new()
 
 # Ready ----------------------------------
 func _ready():
 	pckmgr.set_logger(logger)
+	loader.set_logger(logger)
 	pass
 
 
