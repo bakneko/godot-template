@@ -42,7 +42,7 @@ func load_packages() -> void:
 			_logger.info("%s%% Loading: %s..." % [progress, package], MODULE_NAME)
 		if !ProjectSettings.load_resource_pack(package):
 			if _logger != null:
-				_logger.info("Failed when loading: %s!" % [package], MODULE_NAME)
+				_logger.error("Failed when loading package: %s!" % [package], MODULE_NAME)
 			pass
 	pass
 
