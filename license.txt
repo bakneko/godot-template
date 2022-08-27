@@ -1,3 +1,10 @@
+-----------------------------------------------------------
+godot-template
+-----------------------------------------------------------
+
+CAUTION: Only godot-template repository is licensed under MIT license.
+Copyright (c) 2020 - 2022 Bakneko, All rights reserved.
+
 MIT License
 
 Copyright (c) 2020 - 2022 Bakneko
