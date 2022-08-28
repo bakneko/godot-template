@@ -9,19 +9,31 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "Node",
-"class": &"Scenes",
+"base": "RefCounted",
+"class": &"LogWriter",
 "language": &"GDScript",
-"path": "res://core/singletons/scenes.gd"
+"path": "res://core/classes/logger.gd"
+}, {
+"base": "RefCounted",
+"class": &"PackageManager",
+"language": &"GDScript",
+"path": "res://core/classes/pckmgr.gd"
+}, {
+"base": "RefCounted",
+"class": &"ThreadLoader",
+"language": &"GDScript",
+"path": "res://core/classes/loader.gd"
 }]
 _global_script_class_icons={
-"Scenes": ""
+"LogWriter": "",
+"PackageManager": "",
+"ThreadLoader": ""
 }
 
 [application]
 
 config/name="godot-template"
-run/main_scene="res://core/ui/splash/splash.tscn"
+run/main_scene="res://core/singletons/game.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/show_image=false
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -34,9 +46,7 @@ buses/default_bus_layout="res://core/audio_bus_default.tres"
 
 [autoload]
 
-Utils="*res://core/singletons/utils.gd"
-Transitions="*res://core/ui/transition/transition.tscn"
-Game="*res://core/singletons/game.gd"
+Utility="*res://core/singletons/utility.gd"
 
 [category]
 
@@ -47,7 +57,6 @@ property_name=1
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=false
-window/size/always_on_top=true
 
 [editor_plugins]
 
@@ -55,7 +64,7 @@ enabled=PackedStringArray()
 
 [gui]
 
-theme/custom="res://core/ui/theme.tres"
+theme/custom="res://core/ui/theme_default.tres"
 
 [rendering]
 

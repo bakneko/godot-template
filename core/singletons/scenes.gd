@@ -1,10 +1,7 @@
-class_name Scenes
 extends Node
 
 signal change_started
 signal change_finished
-
-@onready var _loader = preload("res://core/classes/loader.gd").new()
 
 # Parameter Caching.
 var _params = {}
