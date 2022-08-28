@@ -5,33 +5,38 @@
 extends Node
 const MODULE_NAME = "Game"
 
-var viewport_size : Vector2 = _on_viewport_size_changed()
-var screen_size : Vector2 = DisplayServer.screen_get_size()
+@onready var viewport_size : Vector2 = _get_viewport_size()
+@onready var screen_size : Vector2 = DisplayServer.screen_get_size()
 
-@onready var splash = preload("res://core/ui/splash/splash.tscn")
+var package_root : String = OS.get_executable_path().get_base_dir()
+var package_paths : Array = [
+	package_root.plus_file("contents"),
+	package_root.plus_file("patches"),
+]
 
 
 # Entrypoint -----------------------------
 func _ready() -> void:
-	# Update viewport_size when viewport is being resized.
+	# Update viewport_size when viewport is being resized.()
 	get_viewport().size_changed.connect(_on_viewport_size_changed)
 	# Init PackageManager and Load .pck files
-	
-	# Write log.
+	Utility.load_packages(package_paths)
+	# change to startup scene
 	pass
 
 
 # Viewport Size --------------------------
-func _on_viewport_size_changed():
-	viewport_size = get_viewport().get_visible_rect().size
+# Connect to viewport size change.
+func _on_viewport_size_changed() -> void:
+	viewport_size = _get_viewport_size()
+
+
+# Update viewport_size
+func _get_viewport_size() -> Vector2:
+	return get_viewport().get_visible_rect().size
 
 
 # Scene Management -----------------------
-func change_scene(path: String, params = {}):
-	if not Utility.file_exists(scene):
-		printerr("[ERROR] Scene file not found: ", scene)
-		return
-	else:
-		pass
-		# use multi-thread
-		#scenes.change_scene(scene, params)
+func change_scene(path: String, use_transition: bool = false) -> void:
+	
+	pass

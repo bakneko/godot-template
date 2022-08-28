@@ -48,8 +48,7 @@ func _get_prefix(level: int , module: String):
 # Build string and write
 func _write(level: int, module: String, text: String):
 	var content = "%s%s" % [_get_prefix(level, module), text]
+	print(content)
 	if level == 2 || level == 3:
-		print_debug(content)
-	else:
-		print(content)
+		print_stack()
 	pass
