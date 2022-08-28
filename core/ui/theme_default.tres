@@ -1,3 +1,15 @@
-[gd_resource type="Theme" format=3 uid="uid://cdi0q7kquyuwv"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://nkxh3cyyptvv"]
+
+[ext_resource type="FontFile" uid="uid://c26jj7o0hoqqh" path="res://core/fonts/source-han-sans/source-han-sans-variable.otf" id="1_4g8f0"]
+
+[sub_resource type="FontVariation" id="FontVariation_0wtia"]
+base_font = ExtResource("1_4g8f0")
+variation_opentype = {
+2003265652: 400
+}
+opentype_features = {
+1667329140: 1
+}
 
 [resource]
+default_font = SubResource("FontVariation_0wtia")

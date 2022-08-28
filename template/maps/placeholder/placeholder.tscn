@@ -9,22 +9,25 @@ offset_right = 1280.0
 offset_bottom = 720.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-offset_left = 494.0
-offset_top = 287.0
-offset_right = 786.0
-offset_bottom = 433.0
+layout_mode = 2
+offset_left = 497.0
+offset_top = 285.0
+offset_right = 783.0
+offset_bottom = 434.0
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer"]
-offset_right = 292.0
+layout_mode = 2
+offset_right = 286.0
 offset_bottom = 100.0
 texture = ExtResource("1_q55sl")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 104.0
-offset_right = 292.0
-offset_bottom = 146.0
+offset_right = 286.0
+offset_bottom = 149.0
 theme_type_variation = &"HeaderLarge"
 text = "placeholder scene"
 uppercase = true
