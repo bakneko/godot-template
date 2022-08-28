@@ -45,8 +45,7 @@ func get_files_recursive(path: String, regex: RegEx = null) -> Array:
 
 # PackageManager -------------------------
 # Load Packages from given paths (with order)
-func load_packages(paths : Array) -> void:
+func load_packages(paths: Array) -> void:
 	pckmgr.set_path(paths)
-	pckmgr.print_packages()
 	pckmgr.load_packages()
 	pass
