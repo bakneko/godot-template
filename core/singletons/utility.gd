@@ -19,7 +19,7 @@ func _ready():
 
 # File Operations ------------------------
 # Get files in folder and subfolders. Regex Match is supported.
-func get_files_recursive(path : String, regex : RegEx = null) -> Array:
+func get_files_recursive(path: String, regex: RegEx = null) -> Array:
 	var files = []
 	var dir := Directory.new()
 	if dir.open(path) != OK:
@@ -41,3 +41,12 @@ func get_files_recursive(path : String, regex : RegEx = null) -> Array:
 				files.append(file_path)
 		file = dir.get_next()
 	return files
+
+
+# PackageManager -------------------------
+# Load Packages from given paths (with order)
+func load_packages(paths : Array) -> void:
+	pckmgr.set_path(paths)
+	pckmgr.print_packages()
+	pckmgr.load_packages()
+	pass

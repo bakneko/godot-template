@@ -12,7 +12,7 @@ var _logger : LogWriter = null
 
 # Public ---------------------------------
 # Set Logger for log handling.
-func set_logger(logger : LogWriter) -> void:
+func set_logger(logger: LogWriter) -> void:
 	_logger = logger
 	pass
 
@@ -25,7 +25,7 @@ func get_queue() -> Dictionary:
 # Request a reource load.
 # Return a LoadSignal<completed, updated>.
 # Example: loader.request("res://main.tscn").updated.connect(_on_loader_updated)
-func request(path: String, use_sub_threads : bool = true) -> LoadSignal:
+func request(path: String, use_sub_threads: bool = true) -> LoadSignal:
 	if _queue.has(path):
 		if _logger != null:
 			_logger.info("Resource already loaded: %s." % [path], MODULE_NAME)
@@ -34,6 +34,8 @@ func request(path: String, use_sub_threads : bool = true) -> LoadSignal:
 		ResourceLoader.load_threaded_request(path, "", use_sub_threads)
 		var load_signal = LoadSignal.new()
 		_queue[path] = load_signal
+		if _logger != null:
+			_logger.info("Now loading: %s" % [path], MODULE_NAME)
 		if _thread.is_alive() == false:
 			_thread.start(_thread_update_status)
 		return load_signal
@@ -71,5 +73,5 @@ func _thread_update_status() -> void:
 # Class ----------------------------------
 # Resource LoadSignal.
 class LoadSignal:
-	signal completed(path : String, resource : Resource)
-	signal updated(path : String, progress : float)
+	signal completed(path: String, resource: Resource)
+	signal updated(path: String, progress: float)

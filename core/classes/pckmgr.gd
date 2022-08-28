@@ -12,7 +12,7 @@ var _logger : LogWriter = null
 
 # Public ---------------------------------
 # Set Search Path and Scan all Packages
-func set_path(path : Array) -> void:
+func set_path(path: Array) -> void:
 	clear()
 	_search_path = path
 	_packages_list = _get_all_packages()
@@ -22,7 +22,7 @@ func set_path(path : Array) -> void:
 
 
 # Set Logger for log handling.
-func set_logger(logger : LogWriter) -> void:
+func set_logger(logger: LogWriter) -> void:
 	_logger = logger
 	pass
 
@@ -68,7 +68,7 @@ func clear() -> void:
 
 # Private --------------------------------
 # Get packages in given path
-func _get_packages(path : String) -> Array:
+func _get_packages(path: String) -> Array:
 	var regex = RegEx.new()
 	regex.compile(".pck$")
 	return Utility.get_files_recursive(path, regex)
