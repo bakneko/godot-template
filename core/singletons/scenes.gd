@@ -1,4 +1,3 @@
-class_name Scenes
 extends Node
 
 signal change_started
