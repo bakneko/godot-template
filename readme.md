@@ -1,4 +1,4 @@
-![Repository Logo](https://github.com/Bakneko/godot-template/blob/38dc4eb673ef50d5b4605a32f5f2f4e9b8d32306/core/images/icon.png)
+![Repository Logo](https://raw.githubusercontent.com/Bakneko/godot-template/main/core/images/icon.png)
 
 # Godot Template
 
