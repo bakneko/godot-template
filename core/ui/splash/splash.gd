@@ -10,11 +10,12 @@ var scene_signal: Utils.SceneSignal
 
 # Entrypoint -----------------------------
 func _ready():
-	$AnimationPlayer.play("Splash")
+	Utils.logger.info("Splash loaded!", MODULE_NAME)
+	$AnimationPlayer.play("splash")
 	pass
 
 
 # Change scene
 func change_scene():
-	var path = Data.MAIN_SCENE
+	scene_signal.change_scene_requested.emit(Data.MAIN_SCENE)
 	pass
