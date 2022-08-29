@@ -46,7 +46,8 @@ buses/default_bus_layout="res://core/audio_bus_default.tres"
 
 [autoload]
 
-Utility="*res://core/singletons/utility.gd"
+Utils="*res://core/singletons/utils.gd"
+Data="*res://core/singletons/data.gd"
 
 [category]
 

@@ -17,17 +17,12 @@ var package_paths : Array = [
 var current_scene : String = ""
 
 
-# Configurations -------------------------
-const SPLASH_SCENE = "res://core/ui/splash/splash.tscn"
-const MAIN_SCENE = "res://template/maps/placeholder/placeholder.tscn"
-
-
 # Entrypoint -----------------------------
 func _ready() -> void:
 	# Update viewport_size when viewport is being resized.()
 	get_viewport().size_changed.connect(_on_viewport_size_changed)
 	# Init PackageManager and Load .pck files
-	Utility.load_packages(package_paths)
+	Utils.load_packages(package_paths)
 	# SPLASH_SCENE
 	change_scene("res://core/ui/splash/splash.tscn")
 	pass
@@ -49,11 +44,17 @@ func _get_viewport_size() -> Vector2:
 func change_scene(path: String, transition: String = "", use_sub_threads: bool = true) -> void:
 	if transition.is_empty():
 		# Load directly.
-		Utility.loader.request(path, use_sub_threads).completed.connect(_on_loader_completed)
+		Utils.loader.request(path, use_sub_threads).completed.connect(_on_loader_completed)
 		pass
 	else:
-		# Use transition.
-		
+		# Init transition, connect to loader and add to child.
+		var scene = load(transition).instantiate()
+		scene.scene_signal = Utils.SceneSignal.new()
+		scene.scene_signal.remove_old_scene_requested.connect(_on_remove_old_scene_requested)
+		scene.scene_signal.set_new_scene_requested.connect(_on_set_new_scene_requested)
+		Utils.loader.request(path, use_sub_threads).updated.connect(Callable(scene, "_on_loader_updated"))
+		Utils.loader.request(path, use_sub_threads).completed.connect(Callable(scene, "_on_loader_completed"))
+		add_child(scene)
 		pass
 	pass
 
@@ -78,6 +79,26 @@ func remove_old_scene() -> void:
 
 # Set new scene
 func set_new_scene(path: String, resource: Resource) -> void:
-	add_child(resource.instantiate())
+	var scene = resource.instantiate()
+	# Connect SceneSignal.
+	scene.scene_signal = Utils.SceneSignal.new()
+	scene.scene_signal.change_scene_requested.connect(_on_change_scene_requested)
+	# Add scene to child.
+	add_child(scene)
 	current_scene = path
 	pass
+
+
+# Call up from child scenes.
+func _on_change_scene_requested(path: String, transition: String = "", use_sub_threads: bool = true) -> void:
+	change_scene(path, transition, use_sub_threads)
+
+
+# Call up from transitions
+func _on_remove_old_scene_requested() -> void:
+	remove_old_scene()
+
+
+# Call up from transitions
+func _on_set_new_scene_requested(path: String, resource: Resource) -> void:
+	set_new_scene(path, resource)

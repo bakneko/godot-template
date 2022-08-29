@@ -46,6 +46,20 @@ func get_files_recursive(path: String, regex: RegEx = null) -> Array:
 # PackageManager -------------------------
 # Load Packages from given paths (with order)
 func load_packages(paths: Array) -> void:
-	pckmgr.set_path(paths)
-	pckmgr.load_packages()
+
+	if OS.has_feature("standalone"):
+		# Load if exported.
+		pckmgr.set_path(paths)
+		pckmgr.load_packages()
+	else:
+		logger.warning("This project seems runs in editor, Hello developers!", MODULE_NAME)
+		logger.warning("Skipping load packages!", MODULE_NAME)
 	pass
+
+
+# Class ----------------------------------
+# SceneSignal for manage scene changes.
+class SceneSignal:
+	signal change_scene_requested(path: String, transition: String, use_sub_threads: bool)
+	signal remove_old_scene_requested()
+	signal set_new_scene_requested(path: String, resource: Resource)

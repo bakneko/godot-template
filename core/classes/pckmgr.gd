@@ -71,7 +71,7 @@ func clear() -> void:
 func _get_packages(path: String) -> Array:
 	var regex = RegEx.new()
 	regex.compile(".pck$")
-	return Utility.get_files_recursive(path, regex)
+	return Utils.get_files_recursive(path, regex)
 
 
 # Get all packages
