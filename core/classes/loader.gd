@@ -31,13 +31,13 @@ func request(path: String, use_sub_threads: bool = true) -> LoadSignal:
 			_logger.info("Resource already loaded: %s." % [path], MODULE_NAME)
 		return _queue[path]
 	else:
-		ResourceLoader.load_threaded_request(path, "", use_sub_threads)
 		var load_signal = LoadSignal.new()
 		_queue[path] = load_signal
-		if _logger != null:
-			_logger.info("Now loading: %s" % [path], MODULE_NAME)
 		if _thread.is_alive() == false:
 			_thread.start(_thread_update_status)
+			if _logger != null:
+				_logger.info("Now loading: %s" % [path], MODULE_NAME)
+		ResourceLoader.load_threaded_request(path, "", use_sub_threads)
 		return load_signal
 
 

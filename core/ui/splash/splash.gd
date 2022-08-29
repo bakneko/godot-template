@@ -5,7 +5,7 @@
 extends Control
 const MODULE_NAME = "Splash"
 
-var scene_signal: Utils.SceneSignal
+var scene_signal : Utils.SceneSignal = Utils.SceneSignal.new()
 
 
 # Entrypoint -----------------------------

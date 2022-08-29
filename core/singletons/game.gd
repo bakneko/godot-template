@@ -81,7 +81,6 @@ func remove_old_scene() -> void:
 func set_new_scene(path: String, resource: Resource) -> void:
 	var scene = resource.instantiate()
 	# Connect SceneSignal.
-	scene.scene_signal = Utils.SceneSignal.new()
 	scene.scene_signal.change_scene_requested.connect(_on_change_scene_requested)
 	# Add scene to child.
 	add_child(scene)
