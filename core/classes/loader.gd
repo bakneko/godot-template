@@ -24,7 +24,7 @@ func get_queue() -> Dictionary:
 
 # Request a reource load.
 # Return a LoadSignal<completed, updated>.
-# Example: loader.request("res://main.tscn").updated.connect(_on_loader_updated)
+# Example: loader.request("res://main.tscn", true).updated.connect(_on_loader_updated)
 func request(path: String, use_sub_threads: bool = true) -> LoadSignal:
 	if _queue.has(path):
 		if _logger != null:

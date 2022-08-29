@@ -40,13 +40,13 @@ func fatal(text: String, module: String) -> void:
 
 # Private --------------------------------
 # Get Log line prefix.
-func _get_prefix(level: int , module: String):
+func _get_prefix(level: int, module: String) -> String:
 	var datetime_string = Time.get_datetime_string_from_system(false, false)
 	return "[%s] [%s][%s] " % [datetime_string, module, _level_dict[level]]
 
 
 # Build string and write
-func _write(level: int, module: String, text: String):
+func _write(level: int, module: String, text: String) -> void:
 	var content = "%s%s" % [_get_prefix(level, module), text]
 	print(content)
 	if level == 2 || level == 3:
