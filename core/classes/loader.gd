@@ -6,7 +6,7 @@ class_name ThreadLoader
 const MODULE_NAME = "ThreadLoader"
 
 var _queue : Dictionary = {}
-var _thread : Thread = Thread.new()
+var _thread : Thread = null
 var _logger : LogWriter = null
 
 
@@ -28,13 +28,15 @@ func get_queue() -> Dictionary:
 func request(path: String, use_sub_threads: bool = true) -> LoadSignal:
 	if _queue.has(path):
 		if _logger != null:
-			_logger.info("Resource already loaded: %s." % [path], MODULE_NAME)
+			_logger.info("Resource already in queue: %s." % [path], MODULE_NAME)
 		return _queue[path]
 	else:
 		var load_signal = LoadSignal.new()
 		_queue[path] = load_signal
+		_thread = Thread.new()
 		if _thread.is_alive() == false:
-			_thread.start(_thread_update_status)
+			var error = _thread.start(_thread_update_status)
+			print(error)
 			if _logger != null:
 				_logger.info("Now loading: %s" % [path], MODULE_NAME)
 		ResourceLoader.load_threaded_request(path, "", use_sub_threads)
