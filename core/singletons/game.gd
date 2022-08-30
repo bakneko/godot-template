@@ -10,8 +10,8 @@ const MODULE_NAME = "Game"
 
 var package_root : String = OS.get_executable_path().get_base_dir()
 var package_paths : Array = [
-	package_root.plus_file("contents"),
-	package_root.plus_file("patches"),
+	package_root.path_join("contents"),
+	package_root.path_join("patches"),
 ]
 
 var current_scene : String = ""

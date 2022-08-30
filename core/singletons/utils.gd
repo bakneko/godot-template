@@ -31,9 +31,9 @@ func get_files_recursive(path: String, regex: RegEx = null) -> Array:
 	var file := dir.get_next()
 	while file != "":
 		if dir.current_is_dir():
-			files += get_files_recursive(dir.get_current_dir().plus_file(file), regex)
+			files += get_files_recursive(dir.get_current_dir().path_join(file), regex)
 		else:
-			var file_path = dir.get_current_dir().plus_file(file)
+			var file_path = dir.get_current_dir().path_join(file)
 			if regex != null:
 				if regex.search(file_path):
 					files.append(file_path)

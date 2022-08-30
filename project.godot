@@ -69,4 +69,5 @@ theme/custom="res://core/ui/theme_default.tres"
 
 [rendering]
 
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 threads/thread_model=2
