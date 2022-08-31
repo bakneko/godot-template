@@ -6,14 +6,21 @@ class_name ThreadLoader
 const MODULE_NAME = "ThreadLoader"
 
 var _queue : Dictionary = {}
-var _thread : Thread = null
 var _logger : LogWriter = null
+var _timer : Timer = null
 
 
 # Public ---------------------------------
 # Set Logger for log handling.
 func set_logger(logger: LogWriter) -> void:
 	_logger = logger
+	pass
+
+
+# Set Timer for update load status periodically.
+func set_timer(timer: Timer) -> void:
+	_timer = timer
+	timer.timeout.connect(_on_timer_timeout)
 	pass
 
 
@@ -33,20 +40,23 @@ func request(path: String, use_sub_threads: bool = true) -> LoadSignal:
 	else:
 		var load_signal = LoadSignal.new()
 		_queue[path] = load_signal
-		_thread = Thread.new()
-		if _thread.is_alive() == false:
-			var error = _thread.start(_thread_update_status)
-			print(error)
+		if _timer != null:
 			if _logger != null:
 				_logger.info("Now loading: %s" % [path], MODULE_NAME)
-		ResourceLoader.load_threaded_request(path, "", use_sub_threads)
-		return load_signal
+			ResourceLoader.load_threaded_request(path, "", use_sub_threads)
+			if _timer.is_stopped():
+				_timer.start()
+			return load_signal
+		else:
+			if _logger != null:
+				_logger.fatal("Timer is null, all loadsignals will be broken!", MODULE_NAME)
+			return null
 
 
 # Private --------------------------------
-# Thread function for checking loading status.
-func _thread_update_status() -> void:
-	while _queue.is_empty() == false:
+# Timer function for checking loading status.
+func _on_timer_timeout() -> void:
+	if _queue.is_empty() == false:
 		var remove = []
 		for path in _queue:
 			var array = []
@@ -69,7 +79,8 @@ func _thread_update_status() -> void:
 				_logger.info("Remove %s from loading queue." % [path], MODULE_NAME)
 			_queue.erase(path)
 	if _logger != null:
-		_logger.info("Thread back to sleep.", MODULE_NAME)
+		_logger.info("Timer back to sleep.", MODULE_NAME)
+	_timer.stop()
 
 
 # Class ----------------------------------

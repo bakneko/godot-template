@@ -12,8 +12,15 @@ const MODULE_NAME = "Utility"
 
 # Ready ----------------------------------
 func _ready():
+	# Register logger
 	pckmgr.set_logger(logger)
-	loader.set_logger(logger)
+	loader.set_logger(logger) 
+	# Add LoaderUpdateStatusTimer
+	var timer = Timer.new()
+	timer.name = "LoaderUpdateStatusTimer"
+	timer.wait_time = Data.LOADER_WAIT_TIME
+	add_child(timer)
+	loader.set_timer(timer)
 	pass
 
 
@@ -46,7 +53,6 @@ func get_files_recursive(path: String, regex: RegEx = null) -> Array:
 # PackageManager -------------------------
 # Load Packages from given paths (with order)
 func load_packages(paths: Array) -> void:
-
 	if OS.has_feature("standalone"):
 		# Load if exported.
 		pckmgr.set_path(paths)

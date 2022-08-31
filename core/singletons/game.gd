@@ -8,12 +8,6 @@ const MODULE_NAME = "Game"
 @onready var viewport_size : Vector2 = _get_viewport_size()
 @onready var screen_size : Vector2 = DisplayServer.screen_get_size()
 
-var package_root : String = OS.get_executable_path().get_base_dir()
-var package_paths : Array = [
-	package_root.path_join("contents"),
-	package_root.path_join("patches"),
-]
-
 var current_scene : String = ""
 
 
@@ -22,9 +16,9 @@ func _ready() -> void:
 	# Update viewport_size when viewport is being resized.()
 	get_viewport().size_changed.connect(_on_viewport_size_changed)
 	# Init PackageManager and Load .pck files
-	Utils.load_packages(package_paths)
+	Utils.load_packages(Data.PACKAGE_PATHS)
 	# SPLASH_SCENE
-	change_scene("res://core/ui/splash/splash.tscn")
+	change_scene(Data.SPLASH_SCENE_PATH)
 	pass
 
 

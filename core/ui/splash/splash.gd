@@ -17,5 +17,5 @@ func _ready():
 
 # Change scene
 func change_scene():
-	scene_signal.change_scene_requested.emit(Data.MAIN_SCENE)
+	scene_signal.change_scene_requested.emit(Data.MAIN_SCENE_PATH)
 	pass
