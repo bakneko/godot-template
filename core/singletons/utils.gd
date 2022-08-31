@@ -59,7 +59,7 @@ func load_packages(paths: Array) -> void:
 		pckmgr.load_packages()
 	else:
 		logger.warning("This project seems runs in editor, Hello developers!", MODULE_NAME)
-		logger.warning("Skipping load packages!", MODULE_NAME)
+		logger.warning("Skipping load packages...", MODULE_NAME)
 	pass
 
 

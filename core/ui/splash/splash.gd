@@ -10,7 +10,7 @@ var scene_signal : Utils.SceneSignal = Utils.SceneSignal.new()
 
 # Entrypoint -----------------------------
 func _ready():
-	Utils.logger.info("Splash loaded!", MODULE_NAME)
+	Utils.logger.ready(MODULE_NAME)
 	$AnimationPlayer.play("splash")
 	pass
 

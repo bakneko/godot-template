@@ -38,6 +38,11 @@ func fatal(text: String, module: String) -> void:
 	pass
 
 
+# Log Ready (info)
+func ready(module: String) -> void:
+	_write(0, module, "%s is now ready!" % [module])
+
+
 # Private --------------------------------
 # Get Log line prefix.
 func _get_prefix(level: int, module: String) -> String:
@@ -48,7 +53,11 @@ func _get_prefix(level: int, module: String) -> String:
 # Build string and write
 func _write(level: int, module: String, text: String) -> void:
 	var content = "%s%s" % [_get_prefix(level, module), text]
-	print(content)
-	if level == 2 || level == 3:
+	if level == 0:
+		print(content)
+	elif level == 1:
+		print_rich("[color=yellow]%s[/color]" % [content])
+	elif level == 2 || level == 3:
+		print_rich("[color=red]%s[/color]" % [content])
 		print_stack()
 	pass
