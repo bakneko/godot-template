@@ -78,9 +78,11 @@ func _on_timer_timeout() -> void:
 			if _logger != null:
 				_logger.info("Remove %s from loading queue." % [path], MODULE_NAME)
 			_queue.erase(path)
-	if _logger != null:
-		_logger.info("Timer stopped.", MODULE_NAME)
-	_timer.stop()
+	else:
+		if _logger != null:
+			_logger.info("Timer stopped.", MODULE_NAME)
+		_timer.stop()
+	pass
 
 
 # Class ----------------------------------

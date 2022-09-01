@@ -15,7 +15,12 @@ func _ready():
 	pass
 
 
+# Animation functions --------------------
 # Change scene
 func change_scene():
-	scene_signal.change_scene_requested.emit(Data.MAIN_SCENE_PATH)
+	scene_signal.change_scene_requested.emit(
+		Data.MAIN_SCENE_PATH,
+		Data.TRANSITION_IMAGE_PATH,
+		true
+		)
 	pass

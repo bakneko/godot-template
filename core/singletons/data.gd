@@ -8,7 +8,7 @@ const MODULE_NAME = "GlobalData"
 # Scene Configs --------------------------
 const SPLASH_SCENE_PATH : String = "res://core/ui/splash/splash.tscn"
 const MAIN_SCENE_PATH : String = "res://template/maps/placeholder/placeholder.tscn"
-const TRANSITION_PATH : String = "res://core/ui/transition/transition.tscn"
+const TRANSITION_IMAGE_PATH : String = "res://core/ui/transitions/transition_image.tscn"
 
 # Resource & Packages --------------------
 var LOADER_WAIT_TIME : float = 0.5

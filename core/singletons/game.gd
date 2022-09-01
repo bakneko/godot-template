@@ -36,14 +36,15 @@ func _get_viewport_size() -> Vector2:
 # Scene Management -----------------------
 # Change scene to target by ResourceLoader
 func change_scene(path: String, transition: String = "", use_sub_threads: bool = true) -> void:
+	Utils.logger.info("Changing to scene: %s, use sub threads: %s..." % [path, use_sub_threads], MODULE_NAME)
 	if transition.is_empty():
 		# Load directly.
 		Utils.loader.request(path, use_sub_threads).completed.connect(_on_loader_completed)
 		pass
 	else:
+		Utils.logger.info("Use transitions: %s." % [transition])
 		# Init transition, connect to loader and add to child.
 		var scene = load(transition).instantiate()
-		scene.scene_signal = Utils.SceneSignal.new()
 		scene.scene_signal.remove_old_scene_requested.connect(_on_remove_old_scene_requested)
 		scene.scene_signal.set_new_scene_requested.connect(_on_set_new_scene_requested)
 		Utils.loader.request(path, use_sub_threads).updated.connect(Callable(scene, "_on_loader_updated"))
@@ -68,6 +69,7 @@ func remove_old_scene() -> void:
 			if node.get_scene_file_path() == current_scene:
 				node.queue_free()
 	current_scene = ""
+	Utils.logger.info("Old scene removed!", MODULE_NAME)
 	pass
 
 
@@ -79,6 +81,7 @@ func set_new_scene(path: String, resource: Resource) -> void:
 	# Add scene to child.
 	add_child(scene)
 	current_scene = path
+	Utils.logger.info("Current scene: %s." % [path], MODULE_NAME)
 	pass
 
 
@@ -87,11 +90,11 @@ func _on_change_scene_requested(path: String, transition: String = "", use_sub_t
 	change_scene(path, transition, use_sub_threads)
 
 
-# Call up from transitions
+# Call up from transitions.
 func _on_remove_old_scene_requested() -> void:
 	remove_old_scene()
 
 
-# Call up from transitions
+# Call up from transitions.
 func _on_set_new_scene_requested(path: String, resource: Resource) -> void:
 	set_new_scene(path, resource)
