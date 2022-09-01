@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/unifont-regular.otf-5b84d90c548e7ef76f6c32c45
 [params]
 
 Rendering=null
-antialiased=true
+antialiasing=1
 generate_mipmaps=false
 multichannel_signed_distance_field=false
 msdf_pixel_range=8

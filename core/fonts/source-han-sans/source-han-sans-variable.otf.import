@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/source-han-sans-variable.otf-55637d39ee6b24c0
 [params]
 
 Rendering=null
-antialiased=true
+antialiasing=1
 generate_mipmaps=false
 multichannel_signed_distance_field=false
 msdf_pixel_range=8

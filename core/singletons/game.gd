@@ -67,7 +67,7 @@ func remove_old_scene() -> void:
 
 
 # Set new scene
-func set_new_scene(path: String, resource: Resource) -> void:
+func set_new_scene(_path: String, resource: Resource) -> void:
 	var scene = resource.instantiate()
 	# Add scene to child.
 	add_child(scene)
