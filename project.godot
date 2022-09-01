@@ -46,7 +46,8 @@ buses/default_bus_layout="res://core/audio_bus_default.tres"
 
 [autoload]
 
-Utility="*res://core/singletons/utility.gd"
+Data="*res://core/singletons/data.gd"
+Utils="*res://core/singletons/utils.gd"
 
 [category]
 
@@ -68,4 +69,5 @@ theme/custom="res://core/ui/theme_default.tres"
 
 [rendering]
 
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 threads/thread_model=2

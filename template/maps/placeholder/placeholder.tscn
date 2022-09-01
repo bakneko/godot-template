@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bar8kkox7ofqv"]
+[gd_scene load_steps=3 format=3 uid="uid://bar8kkox7ofqv"]
 
+[ext_resource type="Script" path="res://template/maps/placeholder/placeholder.gd" id="1_hgxjt"]
 [ext_resource type="Texture2D" uid="uid://cjditcqw8tx64" path="res://template/sprites/godot.png" id="1_q55sl"]
 
 [node name="PlaceHolder" type="Node2D"]
+script = ExtResource("1_hgxjt")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 offset_right = 1280.0

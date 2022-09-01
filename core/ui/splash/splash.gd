@@ -1,11 +1,21 @@
+# ----------------------------------------
+# splash.gd
+# ----------------------------------------
+# Logic code of 'splash.tscn'
 extends Control
+const MODULE_NAME = "Splash"
+
+var scene_signal : Utils.SceneSignal = Utils.SceneSignal.new()
 
 
-# Called when the node enters the scene tree for the first time.
+# Entrypoint -----------------------------
 func _ready():
-	pass # Replace with function body.
+	Utils.logger.ready(MODULE_NAME)
+	$AnimationPlayer.play("splash")
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+# Change scene
+func change_scene():
+	scene_signal.change_scene_requested.emit(Data.MAIN_SCENE_PATH)
 	pass
