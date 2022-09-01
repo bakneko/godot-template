@@ -5,9 +5,9 @@
 extends Node2D
 const MODULE_NAME = "PlaceHolder"
 
-var scene_signal : Utils.SceneSignal = Utils.SceneSignal.new()
-
 
 # Entrypoint -----------------------------
 func _ready():
+	$Control.size = Game.viewport_size
+	Utils.logger.ready(MODULE_NAME)
 	pass

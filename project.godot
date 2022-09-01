@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="godot-template"
-run/main_scene="res://core/singletons/game.tscn"
+run/main_scene="res://core/startup.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/show_image=false
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -48,6 +48,7 @@ buses/default_bus_layout="res://core/audio_bus_default.tres"
 
 Data="*res://core/singletons/data.gd"
 Utils="*res://core/singletons/utils.gd"
+Game="*res://core/singletons/game.gd"
 
 [category]
 

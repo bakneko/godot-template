@@ -5,7 +5,7 @@
 extends Control
 const MODULE_NAME = "Transitions"
 
-var scene_signal : Utils.SceneSignal = Utils.SceneSignal.new()
+var transignal = Game.Transignal.new()
 
 var _target_path : String = ""
 var _target_resource : Resource = null
@@ -37,12 +37,12 @@ func _on_loader_completed(path: String, resource: Resource) -> void:
 # Animation functions --------------------
 # Signal to Game.
 func remove_old_scene() -> void:
-	scene_signal.remove_old_scene_requested.emit()
+	transignal.remove_old_scene_requested.emit()
 	pass
 
 
 # Signal to Game.
 func set_new_scene() -> void:
-	scene_signal.set_new_scene_requested.emit(_target_path, _target_resource)
+	transignal.set_new_scene_requested.emit(_target_path, _target_resource)
 	raise()
 	pass

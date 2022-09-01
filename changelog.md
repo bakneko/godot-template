@@ -12,6 +12,6 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-### 2022.8
+### 2022.09.01
 
 Initial version.

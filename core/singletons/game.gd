@@ -1,7 +1,7 @@
 # ----------------------------------------
 # game.gd
 # ----------------------------------------
-# Game Entrypoint.
+# Game's scene container.
 extends Node
 const MODULE_NAME = "Game"
 
@@ -15,10 +15,6 @@ var current_scene : String = ""
 func _ready() -> void:
 	# Update viewport_size when viewport is being resized.()
 	get_viewport().size_changed.connect(_on_viewport_size_changed)
-	# Init PackageManager and Load .pck files
-	Utils.load_packages(Data.PACKAGE_PATHS)
-	# SPLASH_SCENE
-	change_scene(Data.SPLASH_SCENE_PATH)
 	pass
 
 
@@ -45,8 +41,8 @@ func change_scene(path: String, transition: String = "", use_sub_threads: bool =
 		Utils.logger.info("Use transitions: %s." % [transition], MODULE_NAME)
 		# Init transition, connect to loader and add to child.
 		var scene = load(transition).instantiate()
-		scene.scene_signal.remove_old_scene_requested.connect(_on_remove_old_scene_requested)
-		scene.scene_signal.set_new_scene_requested.connect(_on_set_new_scene_requested)
+		scene.transignal.remove_old_scene_requested.connect(_on_remove_old_scene_requested)
+		scene.transignal.set_new_scene_requested.connect(_on_set_new_scene_requested)
 		Utils.loader.request(path, use_sub_threads).updated.connect(Callable(scene, "_on_loader_updated"))
 		Utils.loader.request(path, use_sub_threads).completed.connect(Callable(scene, "_on_loader_completed"))
 		add_child(scene)
@@ -76,8 +72,6 @@ func remove_old_scene() -> void:
 # Set new scene
 func set_new_scene(path: String, resource: Resource) -> void:
 	var scene = resource.instantiate()
-	# Connect SceneSignal.
-	scene.scene_signal.change_scene_requested.connect(_on_change_scene_requested)
 	# Add scene to child.
 	add_child(scene)
 	current_scene = path
@@ -98,3 +92,10 @@ func _on_remove_old_scene_requested() -> void:
 # Call up from transitions.
 func _on_set_new_scene_requested(path: String, resource: Resource) -> void:
 	set_new_scene(path, resource)
+
+
+# Class ----------------------------------
+# Transition Signal for manage scene changes.
+class Transignal:
+	signal remove_old_scene_requested()
+	signal set_new_scene_requested(path: String, resource: Resource)

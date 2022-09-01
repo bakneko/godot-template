@@ -5,8 +5,6 @@
 extends Control
 const MODULE_NAME = "Splash"
 
-var scene_signal : Utils.SceneSignal = Utils.SceneSignal.new()
-
 
 # Entrypoint -----------------------------
 func _ready():
@@ -18,9 +16,5 @@ func _ready():
 # Animation functions --------------------
 # Change scene
 func change_scene():
-	scene_signal.change_scene_requested.emit(
-		Data.MAIN_SCENE_PATH,
-		Data.TRANSITION_IMAGE_PATH,
-		true
-		)
+	Game.change_scene(Data.MAIN_SCENE_PATH, Data.TRANSITION_IMAGE_PATH, true)
 	pass
