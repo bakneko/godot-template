@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctqhecckvciye"]
+
+[sub_resource type="GDScript" id="GDScript_rocg8"]
+resource_name = "startup"
+script/source = "# ----------------------------------------
+# startup (startup.tscn)
+# ----------------------------------------
+# Game Entrypoint.
+extends Node
+
+
+func _ready() -> void:
+	# Init PackageManager and Load .pck files
+	Utils.load_packages(Data.PACKAGE_PATHS)
+	# Load Splash Scene.
+	Game.change_scene(Data.SPLASH_SCENE_PATH)
+	# Free after initialization.
+	queue_free()
+	pass
+"
+
+[node name="Startup" type="Node"]
+script = SubResource("GDScript_rocg8")
