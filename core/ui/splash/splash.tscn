@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1jxu1fvjbovt"]
 
 [ext_resource type="Script" path="res://core/ui/splash/splash.gd" id="1_mqiwo"]
-[ext_resource type="Texture2D" uid="uid://dqx38mpk7wrrh" path="res://core/images/godot_logo_white.png" id="2_2j3k2"]
+[ext_resource type="Texture2D" uid="uid://cndatg60oc3d6" path="res://core/images/splash/godot.png" id="2_5dv34"]
 
 [sub_resource type="Animation" id="Animation_yl3y8"]
 length = 0.001
@@ -83,6 +83,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_mqiwo")
 
 [node name="Background" type="ColorRect" parent="."]
@@ -90,6 +92,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -104,15 +108,15 @@ metadata/_edit_layout_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer"]
 self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(400, 200)
+custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
-offset_left = 440.0
-offset_top = 260.0
-offset_right = 840.0
-offset_bottom = 460.0
+offset_left = 490.0
+offset_top = 160.0
+offset_right = 790.0
+offset_bottom = 560.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_2j3k2")
+texture = ExtResource("2_5dv34")
 ignore_texture_size = true
 stretch_mode = 5
 
