@@ -8,7 +8,7 @@ const MODULE_NAME = "Game"
 @onready var viewport_size : Vector2 = _get_viewport_size()
 @onready var screen_size : Vector2 = DisplayServer.screen_get_size()
 
-var current_scene : String = ""
+var current_scene : Node = null
 
 
 # Entrypoint -----------------------------
@@ -58,14 +58,11 @@ func _on_loader_completed(path: String, resource: Resource) -> void:
 
 
 # Remove old scene
-# Note: If scene_file_path does not equal to "current_scene" it will be remained.
 func remove_old_scene() -> void:
-	if current_scene.is_empty() == false:
-		for node in self.get_children():
-			if node.get_scene_file_path() == current_scene:
-				node.queue_free()
-	current_scene = ""
-	Utils.logger.info("Old scene removed!", MODULE_NAME)
+	if current_scene != null:
+		Utils.logger.info("%s was removed." % [current_scene.get_path()] , MODULE_NAME)
+		current_scene.queue_free()
+		current_scene = null
 	pass
 
 
@@ -74,8 +71,8 @@ func set_new_scene(path: String, resource: Resource) -> void:
 	var scene = resource.instantiate()
 	# Add scene to child.
 	add_child(scene)
-	current_scene = path
-	Utils.logger.info("Current scene: %s." % [path], MODULE_NAME)
+	current_scene = scene
+	Utils.logger.info("Current scene: %s." % [current_scene.get_path()] , MODULE_NAME)
 	pass
 
 
