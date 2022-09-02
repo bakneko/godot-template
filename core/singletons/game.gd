@@ -43,9 +43,9 @@ func change_scene(path: String, transition: String = "", use_sub_threads: bool =
 		var scene = load(transition).instantiate()
 		scene.transignal.remove_old_scene_requested.connect(_on_remove_old_scene_requested)
 		scene.transignal.set_new_scene_requested.connect(_on_set_new_scene_requested)
+		add_child(scene)
 		Utils.loader.request(path, use_sub_threads).updated.connect(Callable(scene, "_on_loader_updated"))
 		Utils.loader.request(path, use_sub_threads).completed.connect(Callable(scene, "_on_loader_completed"))
-		add_child(scene)
 		pass
 	pass
 
