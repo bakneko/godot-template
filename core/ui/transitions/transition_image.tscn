@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://pl4a47ydfg5d"]
+[gd_scene load_steps=15 format=3 uid="uid://pl4a47ydfg5d"]
 
 [ext_resource type="Script" path="res://core/ui/transitions/transitions.gd" id="1_llf1i"]
 [ext_resource type="Texture2D" uid="uid://dgbenbj602pqx" path="res://core/images/transitions/godot_nodes.svg" id="2_uxppb"]
 
 [sub_resource type="FontVariation" id="FontVariation_btfxl"]
 variation_embolden = 2.0
-spacing_glyph = 5
+variation_transform = Transform2D(1, 0.15, 0, 1, 0, 0)
+spacing_glyph = 6
 
 [sub_resource type="LabelSettings" id="LabelSettings_k2nme"]
 font = SubResource("FontVariation_btfxl")
@@ -15,9 +16,28 @@ shadow_offset = Vector2(2, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqoop"]
 bg_color = Color(0.403922, 0.556863, 0.901961, 1)
+skew = Vector2(0.2, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wk2re"]
 bg_color = Color(1, 1, 1, 1)
+skew = Vector2(0.15, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_tihwo"]
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.15, 0, 1, 0, 0)
+spacing_glyph = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_oa1j8"]
+font = SubResource("FontVariation_tihwo")
+font_size = 36
+
+[sub_resource type="FontVariation" id="FontVariation_xyjd7"]
+variation_embolden = 1.0
+variation_transform = Transform2D(1, 0.15, 0, 1, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1fa1g"]
+font = SubResource("FontVariation_xyjd7")
+font_size = 18
 
 [sub_resource type="Animation" id="Animation_0c4lr"]
 length = 0.001
@@ -189,23 +209,23 @@ offset_bottom = 300.0
 grow_vertical = 2
 texture = ExtResource("2_uxppb")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Controls"]
+[node name="VBoxProgress" type="VBoxContainer" parent="Controls"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -380.0
-offset_top = -120.0
+offset_left = -480.0
+offset_top = -145.0
 offset_right = -80.0
-offset_bottom = -41.0
+offset_bottom = -79.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="Controls/VBoxContainer"]
+[node name="Label" type="Label" parent="Controls/VBoxProgress"]
 layout_mode = 2
-offset_right = 300.0
+offset_right = 400.0
 offset_bottom = 47.0
 text = "Loading"
 label_settings = SubResource("LabelSettings_k2nme")
@@ -213,17 +233,53 @@ horizontal_alignment = 2
 vertical_alignment = 1
 uppercase = true
 
-[node name="ProgressBar" type="ProgressBar" parent="Controls/VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="Controls/VBoxProgress"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 offset_top = 51.0
-offset_right = 300.0
+offset_right = 400.0
 offset_bottom = 66.0
 theme_override_styles/bg = SubResource("StyleBoxFlat_fqoop")
 theme_override_styles/fg = SubResource("StyleBoxFlat_wk2re")
+min_value = 0.1
+value = 0.1
+exp_edit = true
 rounded = true
 percent_visible = false
+
+[node name="VBoxTips" type="VBoxContainer" parent="Controls"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -580.0
+offset_top = -100.0
+offset_right = -80.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TipsTitle" type="Label" parent="Controls/VBoxTips"]
+layout_mode = 2
+offset_right = 500.0
+offset_bottom = 56.0
+text = "Tips"
+label_settings = SubResource("LabelSettings_oa1j8")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="TipsContent" type="Label" parent="Controls/VBoxTips"]
+layout_mode = 2
+offset_top = 60.0
+offset_right = 500.0
+offset_bottom = 120.0
+text = "Godot Engine is a feature-packed, cross-platform game engine to create 2D and 3D games from a unified interface."
+label_settings = SubResource("LabelSettings_1fa1g")
+horizontal_alignment = 2
+autowrap_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
