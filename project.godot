@@ -59,6 +59,7 @@ property_name=1
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=false
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 

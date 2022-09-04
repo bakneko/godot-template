@@ -10,6 +10,8 @@ extends Node
 
 
 func _ready() -> void:
+	# Set fullscreen
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	# Init PackageManager and Load .pck files
 	Utils.load_packages(Data.PACKAGE_PATHS)
 	# Load Splash Scene.

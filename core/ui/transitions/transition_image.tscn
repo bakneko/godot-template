@@ -202,12 +202,12 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 60.0
 offset_top = -300.0
-offset_right = 560.0
+offset_right = 500.0
 offset_bottom = 300.0
 grow_vertical = 2
 texture = ExtResource("2_uxppb")
+stretch_mode = 4
 
 [node name="VBoxProgress" type="VBoxContainer" parent="Controls"]
 layout_mode = 1
