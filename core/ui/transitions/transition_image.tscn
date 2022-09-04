@@ -242,9 +242,6 @@ offset_right = 400.0
 offset_bottom = 66.0
 theme_override_styles/bg = SubResource("StyleBoxFlat_fqoop")
 theme_override_styles/fg = SubResource("StyleBoxFlat_wk2re")
-min_value = 0.1
-value = 0.1
-exp_edit = true
 rounded = true
 percent_visible = false
 
