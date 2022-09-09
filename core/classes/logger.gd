@@ -47,7 +47,7 @@ func ready(module: String) -> void:
 # Get Log line prefix.
 func _get_prefix(level: int, module: String = "NONE") -> String:
 	var datetime_string = Time.get_datetime_string_from_system(false, false)
-	return "[%s] [%s][%s] " % [datetime_string, module, _level_dict[level]]
+	return "[%s] [%s] %s: " % [datetime_string, _level_dict[level], module]
 
 
 # Build string and write

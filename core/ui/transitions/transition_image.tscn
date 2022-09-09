@@ -171,7 +171,6 @@ script = ExtResource("1_llf1i")
 
 [node name="Background" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -181,7 +180,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Controls" type="Control" parent="."]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -189,7 +188,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Image" type="ColorRect" parent="Controls"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -198,7 +196,6 @@ grow_vertical = 2
 color = Color(0.196078, 0.239216, 0.380392, 1)
 
 [node name="TextureRect" type="TextureRect" parent="Controls"]
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -210,7 +207,6 @@ texture = ExtResource("2_uxppb")
 stretch_mode = 4
 
 [node name="VBoxProgress" type="VBoxContainer" parent="Controls"]
-layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -224,7 +220,6 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Label" type="Label" parent="Controls/VBoxProgress"]
-layout_mode = 2
 offset_right = 400.0
 offset_bottom = 47.0
 text = "Loading"
@@ -236,7 +231,6 @@ uppercase = true
 [node name="ProgressBar" type="ProgressBar" parent="Controls/VBoxProgress"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 15)
-layout_mode = 2
 offset_top = 51.0
 offset_right = 400.0
 offset_bottom = 66.0
@@ -246,7 +240,6 @@ rounded = true
 show_percentage = false
 
 [node name="VBoxTips" type="VBoxContainer" parent="Controls"]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -260,7 +253,6 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="TipsTitle" type="Label" parent="Controls/VBoxTips"]
-layout_mode = 2
 offset_right = 500.0
 offset_bottom = 56.0
 text = "Tips"
@@ -269,7 +261,6 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="TipsContent" type="Label" parent="Controls/VBoxTips"]
-layout_mode = 2
 offset_top = 60.0
 offset_right = 500.0
 offset_bottom = 120.0
