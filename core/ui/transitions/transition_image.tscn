@@ -12,7 +12,7 @@ spacing_glyph = 6
 font = SubResource("FontVariation_btfxl")
 font_size = 30
 shadow_color = Color(0.403922, 0.556863, 0.901961, 1)
-shadow_offset = Vector2(2, 2)
+shadow_offset = Vector2(3, 3)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_662y5"]
 bg_color = Color(0.360784, 0.552941, 0.894118, 1)
@@ -230,7 +230,7 @@ uppercase = true
 
 [node name="ProgressBar" type="ProgressBar" parent="Controls/VBoxProgress"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 15)
+custom_minimum_size = Vector2i(0, 15)
 offset_top = 51.0
 offset_right = 400.0
 offset_bottom = 66.0

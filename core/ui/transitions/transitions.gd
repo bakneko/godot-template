@@ -44,5 +44,5 @@ func remove_old_scene() -> void:
 # Signal to Game.
 func set_new_scene() -> void:
 	transignal.set_new_scene_requested.emit(_target_path, _target_resource)
-	raise()
+	move_to_front()
 	pass
