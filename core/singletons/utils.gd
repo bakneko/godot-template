@@ -28,26 +28,24 @@ func _ready():
 # Get files in folder and subfolders. Regex Match is supported.
 func get_files_recursive(path: String, regex: RegEx = null) -> Array:
 	var files = []
-	var dir := Directory.new()
-	if dir.open(path) != OK:
-		logger.error("Could not open directory: %s" % path, MODULE_NAME)
-		return []
-	if dir.list_dir_begin() != OK:
-		logger.error("Could not list contents of: %s" % path, MODULE_NAME)
-		return []
-	var file := dir.get_next()
-	while file != "":
-		if dir.current_is_dir():
-			files += get_files_recursive(dir.get_current_dir().path_join(file), regex)
-		else:
-			var file_path = dir.get_current_dir().path_join(file)
-			if regex != null:
-				if regex.search(file_path):
-					files.append(file_path)
+	var dir = DirAccess.open(path)
+	if dir:
+		var file := dir.get_next()
+		while file != "":
+			if dir.current_is_dir():
+				files += get_files_recursive(dir.get_current_dir().path_join(file), regex)
 			else:
-				files.append(file_path)
-		file = dir.get_next()
-	return files
+				var file_path = dir.get_current_dir().path_join(file)
+				if regex != null:
+					if regex.search(file_path):
+						files.append(file_path)
+				else:
+					files.append(file_path)
+			file = dir.get_next()
+		return files
+	else:
+		logger.error("A error occured when trying to open directory: %s" % path, MODULE_NAME)
+		return []
 
 
 # PackageManager -------------------------
