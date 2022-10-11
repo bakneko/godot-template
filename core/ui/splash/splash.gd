@@ -16,5 +16,5 @@ func _ready():
 # Animation functions --------------------
 # Change scene
 func change_scene():
-	Game.change_scene(Data.MAIN_SCENE_PATH, Data.TRANSITION_IMAGE_PATH, true)
+	Game.change_scene(Data.MAIN_SCENE_PATH, true, Data.TRANSITION_IMAGE_PATH)
 	pass

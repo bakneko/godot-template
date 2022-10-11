@@ -31,7 +31,7 @@ func _get_viewport_size() -> Vector2:
 
 # Scene Management -----------------------
 # Change scene to target by ResourceLoader
-func change_scene(path: String, transition: String = "", use_sub_threads: bool = true) -> void:
+func change_scene(path: String, use_sub_threads: bool = true, transition: String = "") -> void:
 	Utils.logger.info("Changing to scene: %s, use_sub_threads: %s..." % [path, use_sub_threads], MODULE_NAME)
 	if transition.is_empty():
 		# Load directly.
@@ -77,8 +77,8 @@ func set_new_scene(_path: String, resource: Resource) -> void:
 
 
 # Call up from child scenes.
-func _on_change_scene_requested(path: String, transition: String = "", use_sub_threads: bool = true) -> void:
-	change_scene(path, transition, use_sub_threads)
+func _on_change_scene_requested(path: String, use_sub_threads: bool = true, transition: String = "") -> void:
+	change_scene(path, use_sub_threads, transition)
 
 
 # Call up from transitions.
