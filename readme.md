@@ -1,8 +1,10 @@
 ![Repository Logo](https://raw.githubusercontent.com/Bakneko/godot-template/main/core/images/icon.png)
 
+
 # Godot Template
 
-![Godot Engine 4.0](https://img.shields.io/badge/Godot%20Engine-4.0-blue)
+[![Godot Engine 4.0](https://img.shields.io/badge/Godot%20Engine-4.0-blue)](https://godotengine.org/)
+[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
 Godot Engine 4 game project template for quick start.
 
