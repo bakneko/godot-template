@@ -83,16 +83,12 @@ metadata/_edit_layout_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer"]
 self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2i(300, 400)
+custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
-offset_left = 490.0
-offset_top = 160.0
-offset_right = 790.0
-offset_bottom = 560.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_5dv34")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

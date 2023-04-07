@@ -8,35 +8,13 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "RefCounted",
-"class": &"LogWriter",
-"language": &"GDScript",
-"path": "res://core/classes/logger.gd"
-}, {
-"base": "RefCounted",
-"class": &"PackageManager",
-"language": &"GDScript",
-"path": "res://core/classes/pckmgr.gd"
-}, {
-"base": "RefCounted",
-"class": &"ThreadLoader",
-"language": &"GDScript",
-"path": "res://core/classes/loader.gd"
-}]
-_global_script_class_icons={
-"LogWriter": "",
-"PackageManager": "",
-"ThreadLoader": ""
-}
-
 [application]
 
 config/name="godot-template"
 run/main_scene="res://core/startup.tscn"
 config/features=PackedStringArray("4.0")
-boot_splash/show_image=false
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://core/images/icon.png"
 config/version="1.0.0"
 
