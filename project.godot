@@ -15,7 +15,7 @@ run/main_scene="res://core/startup.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
-config/icon="res://core/images/icon.png"
+config/icon="res://core/images/icon.svg"
 config/version="1.0.0"
 
 [audio]
@@ -38,6 +38,7 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=false
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 

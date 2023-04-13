@@ -45,24 +45,15 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
 layout_mode = 2
-offset_left = 450.0
-offset_top = 277.0
-offset_right = 829.0
-offset_bottom = 443.0
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
-offset_right = 379.0
-offset_bottom = 100.0
 texture = ExtResource("1_q55sl")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
-offset_top = 104.0
-offset_right = 379.0
-offset_bottom = 166.0
 text = "PLACEHOLDER"
 label_settings = SubResource("LabelSettings_ux4vg")
 horizontal_alignment = 1
