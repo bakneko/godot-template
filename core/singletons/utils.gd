@@ -30,6 +30,7 @@ func get_files_recursive(path: String, regex: RegEx = null) -> Array:
 	var files = []
 	var dir = DirAccess.open(path)
 	if dir:
+		dir.list_dir_begin()
 		var file := dir.get_next()
 		while file != "":
 			if dir.current_is_dir():
@@ -51,7 +52,7 @@ func get_files_recursive(path: String, regex: RegEx = null) -> Array:
 # PackageManager -------------------------
 # Load Packages from given paths (with order)
 func load_packages(paths: Array) -> void:
-	if OS.has_feature("standalone"):
+	if OS.has_feature("template"):
 		# Load if exported.
 		pckmgr.set_path(paths)
 		pckmgr.load_packages()
