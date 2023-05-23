@@ -1,4 +1,4 @@
-![Repository Logo](core/images/icon.png)
+![Repository Logo](core/images/icon.svg)
 
 
 # Godot Template
