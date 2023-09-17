@@ -3,7 +3,7 @@
 
 # Godot Template
 
-[![Godot Engine 4.0](https://img.shields.io/badge/Godot%20Engine-4.0-blue)](https://godotengine.org/)
+[![Godot Engine 4.1](https://img.shields.io/badge/Godot%20Engine-4.1-blue)](https://godotengine.org/)
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](/license.txt)
 
 Godot Engine 4 game project template for quick start.
@@ -12,9 +12,13 @@ Godot Engine 4 game project template for quick start.
 
 1. [Create a new repo using this template](https://github.com/Bakneko/godot-template/generate)
 2. Clone the new repository to your machine.
-3. Open the project in [Godot Engine](https://godotengine.org/download/) (GDScript)
+3. Open the project in [Godot Engine](https://godotengine.org/download/)
 4. Enjoy making your games!
+
+## Features
+
+
 
 ## Changelog
 
-#### [Check here for a detailed Changelog.](./changelog.md)
+To keep flexibility, changes & updates to this template is kept in another file, [check here for a detailed Changelog.](./changelog.md)
